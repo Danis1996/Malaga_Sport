@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+
+
+	<%if @club.picture.attached?%>
+    	<%= image_tag @club.picture, alt: 'picture' ,:height => '300px',:width => '600px'%>
+  <%else%>
+    <p>=== Il n'y a pas encore de photos lié à cet club ===</p>
+  <%end%>
+
+  <% if current_user == @club.admin %>
+    <h5>Changer de picture ?</h5>
+      <%= form_tag club_pictures_path(@club.id), multipart: true do %>
+      <%= file_field_tag :picture %>
+      <%= submit_tag "mettre à jour" %>
+    <% end %>
+  <% end %>
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+
+
+<li>  <a href="#" id="<%= @club.id %>" class="envoi">creer recrutement</a></li>
+
+ <li> <a href="#" id="<%= @club.id %>" class="lasa">creer evenement</a></li>
+
+
+
+<div class="jumbotron">
+    <div class="container">
+
+   <h1 class="display-5">Hello! vous etes sur le profil du club   <%= @club.name %> , de category:    <%= @club.category %></h1>
+
+  </div>
+  </div>
+
+<main role="main">
+
+<div class="jumbotron">
+	  <div class="container text-center">
+
+      <h1 class="display-3 text-primary">Listes recrutement creer</h1>
+  </div>  </div>
+
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row d-flex justify-content-around">
+      
+
+    <% @club.recrutements.each do |recrutement| %>
+
+    <div class="col-md-5 border border-primary shadow p-3 mb-5 bg-white rounded">
+
+
+
+ <%= link_to recrutement.content, recrutement %>
+     
+    </div>
+    <%end%>
+  </div>
+
+
+
+<div class="jumbotron">
+	  <div class="container text-center">
+
+      <h1 class="display-3 text-primary">Les membres du club</h1>
+  </div>  </div>
+<% @club.members.each do |member|%>
+<h3 align="center"><%= member.first_name%> <%= member.last_name%></h3> 
+<% end %>
+
+
+
+
+<div class="jumbotron">
+	  <div class="container text-center">
+
+      <h1 class="display-3 text-primary">Les evenements du club</h1>
+  </div>  </div>
+<% @club.events.each do |event|%>
+<h3 align="center"><%= link_to "#{event.title}", event_path(event.id)%></h3>
+<% end %>
+
+
+
+<% if user_signed_in? && current_user.role === 'admin' %>
+<a href="#" data-clubid ="<%=@club.id%>" data-quarterid="<%=@club.quarter_id%>" class="club_edit">Edit</a> |
+<%= link_to 'Back', clubs_path %>
+<% end %>
+<br><br>

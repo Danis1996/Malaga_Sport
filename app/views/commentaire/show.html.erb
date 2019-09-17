@@ -1,0 +1,19 @@
+
+
+
+
+  <br/>
+<br/>
+<br/>
+
+      <h5>title event: <%= @event.title %></h5>
+
+
+       
+      <p >description event: <%= @event.description %></p><br><br>
+
+        <p ><%= @comment.content %></p><br>
+ <% if current_user && current_user.id == @comment.user_id %>
+      <a href="<%= edit_event_commentaire_path %>">edit</a>
+   
+ <%end%>

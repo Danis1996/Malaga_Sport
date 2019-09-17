@@ -1,0 +1,14 @@
+ <% a = 0 %>
+<% @clubs.each do |club| %>
+
+  <% if club.admin.id == current_user.id %>
+  <h1><%= link_to 'Mon club', club_path(club.id) %></h1>
+    
+  <% else %>
+    <% a+= 1%>
+  <% end %>
+<% end %>
+<%if a == @clubs.count %>
+  <h1><%= link_to 'Créer un club', new_club_path %></h1>
+  
+<% end %>

@@ -1,0 +1,57 @@
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= form_tag url_for(action: 'create'), method: "event" do %>
+    <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+
+
+  <div class="field">
+    <%= label_tag :start_date %>
+    <%= text_field_tag :start_date %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :duration %>
+    <%= text_field_tag :duration %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :price %>
+    <%= text_field_tag :price %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :location %>
+    <%= text_field_tag :location %>
+  </div>
+
+
+    <div class="field">
+    <input type="hidden" name="club_id" value="<%=@club.id%>">
+  </div>
+
+  <div class="actions">
+     <%= submit_tag "creer event" %>
+  </div>
+<% end %>
+<% end %>

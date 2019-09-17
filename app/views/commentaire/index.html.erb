@@ -1,0 +1,38 @@
+
+
+
+
+  <br/>
+<br/>
+<br/>
+
+
+
+      <h5>title event: <%= @event.title %></h5>
+
+
+      <p >description evet: <%= @event.description %></p><br><br>
+
+        <%= form_tag url_for(action: 'create'), method: "commentaire" do %>
+<input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+     
+      <%= label_tag 'Content' %>
+      <%= text_area_tag 'content' %>
+      <br /> <br />
+
+      <%= submit_tag "Create commentaire" %>
+
+    <% end %>
+
+
+      <h2>Commentaires (<%= @event_comments_count %>)   </h2>
+      <% @event.commentaires.each do |coms| %>
+
+      <strong style="color: blue;"><%= User.find(coms.user_id).first_name %></strong><br>
+      <%= coms.content%><br>
+  <a href="/events/<%= @event.id %>/commentaire/<%=coms.id%>/">voir</a>
+  <br><br><br><br>
+
+
+      <%end%>
+      

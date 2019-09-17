@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= @quarter.zip_code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @quarter.name %>
+</p>
+
+<%= link_to 'Edit', edit_quarter_path(@quarter) %> |
+<%= link_to 'Back', quarters_path %>

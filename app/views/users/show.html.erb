@@ -1,0 +1,40 @@
+<% if @user == current_user %>
+<h1>Mon profil</h1>
+<br>
+
+	<%if @user.avatar.attached?%>
+		<%= image_tag @user.avatar, alt: 'avatar', :class=>"pdp" %>
+		<br>
+		<strong> <%=link_to'Modifier ma photos de profil', edit_user_avatar_path(@user.id)%> </strong>
+		<br>
+	<%else%>
+		<strong> <%=link_to'Ajouter une photos de profil', new_user_avatar_path(@user.id)%> </strong><br>
+	<%end%>
+	<br>
+
+<h1>Apropos de <%= @user.pseudonym %></h1>
+<%end%>
+<ul>
+	<li>Pseudo: <%= @user.pseudonym%> </li>
+	<li>Prénom: <%= @user.first_name%> </li>
+	<li>Nom: <%= @user.last_name%> </li>
+	<li>Email: <%= @user.email%> </li>
+	<li>Age: <%= @user.age%> </li>
+	<li>Genre: <%= @user.gender%> </li>
+	<li>Description: <%= @user.description%> </li>
+	<% if @user.quarter != nil%>
+	<li>Quartier:<%= link_to "#{@user.quarter.name}", quarter_path(@user.quarter.id)%> </li>
+	<% unless @user.club == nil %>
+	<li>Club: <%= link_to "#{@user.club.name}", club_path(@user.club.id) %> </li>
+	<% end %>
+	<% end %>
+</ul>
+	<%= link_to "Mettre à jour mon compte", edit_user_registration_path(current_user.id)%>
+
+<style type="text/css">
+	.pdp{
+		width: 200px;
+		height: 200px;
+		border-color: currentColor;
+	}
+</style>

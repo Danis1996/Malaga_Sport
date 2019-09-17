@@ -1,0 +1,39 @@
+<%= form_with(model: request, local: true) do |form| %>
+  <% if request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+        <% request.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <%= form_tag url_for(action: 'create'), method: "request" do %>
+    <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+
+
+  <div class="field">
+    <%= label_tag :application_letter %>
+    <%= text_area_tag :application_letter, @request.application_letter %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :parcours %>
+    <%= text_area_tag :parcours, @request.parcours %>
+  </div>
+
+  
+<div class="field">
+    <input type="hidden" name="recrutement_id" value="<%= @recrutement.id%>">
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<% end %>

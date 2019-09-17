@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scaff</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+       <div><%= flash[:warning] %></div>
+  </head>
+
+  <body>
+    <%= link_to "Home", root_path %>
+    <% if user_signed_in? && current_user.id === 'admin.id' %>
+    <ul>
+      <li><a href="/admin"> Espace Admin </a></li>
+    </ul>
+
+    <% end %>
+
+    <ul>
+  <% if user_signed_in? %>
+    <li>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    </li>
+
+    <li>
+      <%= link_to "Profil", user_path(current_user.id) %>
+    </li>
+
+
+    <li>
+      
+
+
+       <% a = 0 %>
+<% Club.all.each do |club| %>
+
+  <% if club.admin.id == current_user.id %>
+  <a><%= link_to 'Mon club', club_path(club.id) %></a>
+    
+  <% else %>
+    <% a+= 1%>
+  <% end %>
+<% end %>
+<%if a == Club.all.count %>
+  <a><%= link_to 'Créer un club', new_club_path %></a>
+  
+<% end %>
+
+
+
+
+    </li>
+
+
+    <li>
+      <%= link_to "Liste des clubs", clubs_path %>
+    </li>
+
+  <li>
+<%= link_to "Liste des recrutements", recrutements_path %>
+
+ </li>
+  <% else %>
+    <li>    
+      <%= link_to "Se connecter", new_user_session_path %>
+    </li>
+
+    <li>
+      <%= link_to "S'inscrire", new_user_registration_path %>
+    </li>
+
+
+  <% end %>
+</ul>
+    <%= yield %>
+ <h1>======================================================================================</h1>
+  </body>
+</html>

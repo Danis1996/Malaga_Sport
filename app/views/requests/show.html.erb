@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Application letter:</strong>
+  <%= @request.application_letter %>
+</p>
+
+<p>
+  <strong>Parcours:</strong>
+  <%= @request.parcours %>
+</p>
+
+
+<strong><%= link_to "Accepter la demande de #{@request.user.first_name}", request_path(@request.id) , method: :patch%></strong>
+<a href="#" data-requestid ="<%=@request.id%>" data-id="<%=@request.recrutement_id%>" class="requete">Edit</a> |
+<%= link_to 'Back', recrutement_path(@request.recrutement.id) %>

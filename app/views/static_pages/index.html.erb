@@ -147,17 +147,17 @@
 <% if current_user%>
 
     <% if user_like.count > 0 %>
-        <li><a>j'aime deja</a><span><%= eve[(i+1)*(-1)].likes.count %> </span></li>
+        <li><a style="color: white">j'aime déja</a><span><%= eve[(i+1)*(-1)].likes.count %> </span></li>
 
     <%else%>
 
           <li><a href="/events/<%=eve[(i+1)*(-1)].id%>/likes"  data-method = "post"><%= (eve[(i+1)*(-1)].likes.count) == 1 ? 'Like' : 'Likes'%></a><span><%= eve[(i+1)*(-1)].likes.count %> </span></li>
     <%end%>
-        <li><a href="<span><%= eve[(i+1)*(-1)].likes.count %> </span></li>
+       
 <%else%>
-    <li><a href="/events/<%=eve[(i+1)*(-1)].id%>/likes"  data-method = "post"><%= (eve[(i+1)*(-1)].likes.count) == 1 ? 'Like' : 'Likes'%></a><span><%= eve[(i+1)*(-1)].likes.count %> </span></li>
+    <li><span>like <%= eve[(i+1)*(-1)].likes.count %> </span></li>
 <%end%>
-          <li><a href="/events/<%=eve[(i+1)*(-1)].id %>/commentaire" title="" class="com">Commentaire </a> <span class="span-last"><%= eve[(i+1)*(-1)].commentaires.all.count %></span></li>
+          <li><a href="/events/<%= eve[(i+1)*(-1)].id %>/commentaire" title="" class="com">Commentaire </a> <span class="span-last"><%= eve[(i+1)*(-1)].commentaires.all.count %></span></li>
          </ul>
             </div><!--/ cardbox-like -->        
                   

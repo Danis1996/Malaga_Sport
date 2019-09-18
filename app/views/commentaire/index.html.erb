@@ -13,6 +13,8 @@
 
       <p >description evet: <%= @event.description %></p><br><br>
 
+      <% if current_user%>
+
         <%= form_tag url_for(action: 'create'), method: "commentaire" do %>
 <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
      
@@ -23,7 +25,7 @@
       <%= submit_tag "Create commentaire" %>
 
     <% end %>
-
+<% end %>
 
       <h2>Commentaires (<%= @event_comments_count %>)   </h2>
       <% @event.commentaires.each do |coms| %>

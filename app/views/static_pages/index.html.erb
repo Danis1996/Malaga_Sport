@@ -1,7 +1,8 @@
 
- <% eve = [] %>
-            <% rec = [] %>
-            <% clu = [] %>
+        <% eve = [] %>
+        <% rec = [] %>
+        <% clu = [] %>
+        <% pub = [] %>
               <% @events.each do |event| %>
               <% eve << event %>
               <%end%>
@@ -12,6 +13,10 @@
 
               <% @clubs.each do |club| %>
               <% clu << club %>
+              <%end%>
+
+              <% @publications.each do |publication| %>
+              <% pub << publication %>
               <%end%>
 
     <div class="container-fluid">
@@ -139,14 +144,19 @@
     <%end%>
   <%end%>
 
+<% if current_user%>
 
-  <% if user_like.count > 0 %>
-      <li><a>j'aime deja</a><span><%= eve[(i+1)*(-1)].likes.count %> </span></li>
+    <% if user_like.count > 0 %>
+        <li><a>j'aime deja</a><span><%= eve[(i+1)*(-1)].likes.count %> </span></li>
 
-  <%else%>
+    <%else%>
 
-        <li><a href="/events/<%=eve[(i+1)*(-1)].id%>/likes"  data-method = "post"><%= (eve[(i+1)*(-1)].likes.count) == 1 ? 'Like' : 'Likes'%></a><span><%= eve[(i+1)*(-1)].likes.count %> </span></li>
-  <%end%>
+          <li><a href="/events/<%=eve[(i+1)*(-1)].id%>/likes"  data-method = "post"><%= (eve[(i+1)*(-1)].likes.count) == 1 ? 'Like' : 'Likes'%></a><span><%= eve[(i+1)*(-1)].likes.count %> </span></li>
+    <%end%>
+        <li><a href="<span><%= eve[(i+1)*(-1)].likes.count %> </span></li>
+<%else%>
+    <li><a href="/events/<%=eve[(i+1)*(-1)].id%>/likes"  data-method = "post"><%= (eve[(i+1)*(-1)].likes.count) == 1 ? 'Like' : 'Likes'%></a><span><%= eve[(i+1)*(-1)].likes.count %> </span></li>
+<%end%>
           <li><a href="/events/<%=eve[(i+1)*(-1)].id %>/commentaire" title="" class="com">Commentaire </a> <span class="span-last"><%= eve[(i+1)*(-1)].commentaires.all.count %></span></li>
          </ul>
             </div><!--/ cardbox-like -->        
@@ -158,12 +168,12 @@
                 <div class="photo-background" style="background-image:url(vendor/publication.jpeg);"></div>
 
                 <div class="photo-details">
-                    <div class="dropdown pull-right"><%= link_to "afficher", event_path(eve[(i+1)*(-1)].id), :class=>"btn btn-info" %></div>
-                    <p><em>Evenement creer par: </em><strong class="a"><%= eve[(i+1)*(-1)].club.name %></strong></p>
-                    <small><span>publié le <%= eve[(i+1)*(-1)].updated_at %></span></small>
-                    <p><%= rec[(i+1)*(-1)].content%></p>
-                    <p> date limite d'inscription: <strong><%= rec[(i+1)*(-1)].deadline%></strong></p>
-                    <hr align="center" width="75%" color="#696969" size="3">
+                    <div class="dropdown pull-right"><%= link_to "afficher", publication_path(pub[(i+1)*(-1)].id), :class=>"btn btn-info" %></div>
+                    <p><em>Publication de: </em><strong class="a"><%= pub[(i+1)*(-1)].user.first_name %></strong></p>
+                    <small><span style="color: rgb(200,200,200);">publié le <%= pub[(i+1)*(-1)].updated_at %></span></small>
+                    <p><%= pub[(i+1)*(-1)].content%></p>
+                    <p> </p>
+                    <hr href = "#" align="center" width="75%" color="#696969" size="3">
                     <p data-hook="write-comment__label" class="_24h-e">Commenter</p>
 
                 </div>
@@ -178,8 +188,7 @@
              <div class="dropdown pull-right">
             
            <%= link_to "afficher", recrutement_path(rec[(i+1)*(-1)].id), :class=>"btn btn-info" %> 
-      
-             
+                   
              </div><!--/ dropdown -->
              <!-- END dropdown-->
              <div class="media m-0">
@@ -218,7 +227,8 @@
        
 
         </div>
-        hr
+        <hr>
+
         <div class="cardbox-like">
          <ul>
         <li><a href="#"></a><span> like</span></li>

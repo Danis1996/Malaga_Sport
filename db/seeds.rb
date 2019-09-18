@@ -12,6 +12,7 @@ Club.destroy_all
 Recrutement.destroy_all
 Request.destroy_all
 Event.destroy_all
+Publication.destroy_all
 
 anarandahy = ["Naivo", "Andraina", "Andry", "Balita", "Bary", "Dafy", "Dafy", "Dina", "Donga", "Jaona", 
                 "Falihery", "Faly", "Fanaiky", "Fetra", "Faneva", "Fanilo", "Fanomezana", "Jaonary", "Joro", "Zo",
@@ -73,6 +74,19 @@ antony = ["Notre club de foot recrute pour le moment un ou plusieurs joueur tale
             "Holla holla, c'est pour toi! tu sais très bien que c'est en forgeant qu'on devient forgeron, alors sans plus attendre, intégré notre équipe maintenant"]
  
  sokajy = ["U16","U14","U18","Minim","Sénior","vétérant","junior"]
+
+ verset = [" Romains 10:9 'Si tu confesses de ta bouche le Seigneur Jésus, et si tu crois dans ton coeur que Dieu l'a ressuscité des morts, tu seras sauvé
+'",
+            "Deutéronome 31:6 'Fortifiez-vous et ayez du courage ! Ne craignez point et ne soyez point effrayés devant eux ; car l’Éternel, ton Dieu, marchera lui-même avec toi, il ne te délaissera point, il ne t’abandonnera point.'",
+            "Luc 6:27 'Mais je vous dis, à vous qui m’écoutez: Aimez vos ennemis, faites du bien à ceux qui vous haïssent,'",
+            "Esaïe 30:15 'Car ainsi a parlé le Seigneur, l'Eternel, le Saint d'Israël : C'est dans la tranquillité et le repos que sera votre salut, C'est dans le calme et la confiance que sera votre force. Mais vous ne l'avez pas voulu !'",
+            "Jérémie 33:3 'Invoque-moi, et je te répondrai, je te révélerai de grandes choses et des choses secrètes que tu ne connais pas.'",
+            "Psaumes 90:2 'Avant que soient nées les montagnes, et que tu aies créé la terre et l'univers, de toute éternité et pour l'éternité, toi, tu es Dieu.'",
+            "Luc 15:7 'Je vous assure qu'il en est de même au ciel : il y aura plus de joie pour un seul pécheur qui change de vie, que pour quatre-vingt-dix-neuf justes qui n'en ont pas besoin.'",
+            "Psaumes 62:6 'C'est à Dieu seul, mon âme, qu'il te faut te remettre : mon espoir vient de lui.'",
+            "Ecclésiaste 12:1 Tiens compte de ton Créateur au temps de ta jeunesse, avant que ne t'adviennent les jours mauvais et avant que ne viennent les années dont tu te diras : « Je n'y prends pas plaisir ! » ;",
+            "Romains 6:23 'Car le salaire que verse le péché, c'est la mort, mais le don gratuit que Dieu accorde, c'est la vie éternelle dans l'union avec Jésus-Christ notre Seigneur.'"
+        ]
 
     for i in (0..29)
         Quarter.create(zip_code: Faker::Address.zip_code,
@@ -154,3 +168,9 @@ puts "10 seed for Request created succesfully with attribut user_id "
     end
 
 puts "20 seed for Events created succesfully with attribut user_id "
+
+    for i in 0..verset.length-1
+        Publication.create(user_id: rand(1..59), content: verset[i])
+    end
+
+puts "10 seed for Publication created succesfully "

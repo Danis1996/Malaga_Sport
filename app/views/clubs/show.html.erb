@@ -99,7 +99,7 @@
 
 
 
-<% if user_signed_in? && current_user.role === 'admin' %>
+<% if user_signed_in? && current_user.id === 'admin.id' %>
 <a href="#" data-clubid ="<%=@club.id%>" data-quarterid="<%=@club.quarter_id%>" class="club_edit">Edit</a> |
 <%= link_to 'Back', clubs_path %>
 <% end %>

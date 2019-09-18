@@ -8,7 +8,7 @@
 		<strong> <%=link_to'Modifier ma photos de profil', edit_user_avatar_path(@user.id)%> </strong>
 		<br>
 	<%else%>
-		<strong> <%=link_to'Ajouter une photos de profil', new_user_avatar_path(@user.id)%> </strong><br>
+		<strong> <%=link_to'Ajouter une photos de profil', new_user_avatar_path(@user.id), :style=>'color: black'%> </strong><br>
 	<%end%>
 	<br>
 
@@ -23,13 +23,13 @@
 	<li>Genre: <%= @user.gender%> </li>
 	<li>Description: <%= @user.description%> </li>
 	<% if @user.quarter != nil%>
-	<li>Quartier:<%= link_to "#{@user.quarter.name}", quarter_path(@user.quarter.id)%> </li>
+	<li>Quartier:<%= link_to "#{@user.quarter.name}", quarter_path(@user.quarter.id), :style=>'color: black'%> </li>
 	<% unless @user.club == nil %>
-	<li>Club: <%= link_to "#{@user.club.name}", club_path(@user.club.id) %> </li>
+	<li>Club: <%= link_to "#{@user.club.name}", club_path(@user.club.id) , :style=>'color: black'%> </li>
 	<% end %>
 	<% end %>
 </ul>
-	<%= link_to "Mettre à jour mon compte", edit_user_registration_path(current_user.id)%>
+	<%= link_to "Mettre à jour mon compte", edit_user_registration_path(current_user.id), :style=>'color: black'%>
 
 <style type="text/css">
 	.pdp{

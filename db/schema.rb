@@ -92,8 +92,10 @@ ActiveRecord::Schema.define(version: 2019_09_17_124347) do
 
   create_table "publications", force: :cascade do |t|
     t.text "content"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_publications_on_user_id"
   end
 
   create_table "quarters", force: :cascade do |t|

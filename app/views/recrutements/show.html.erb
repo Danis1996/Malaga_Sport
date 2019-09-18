@@ -34,8 +34,8 @@
               <i class="fas fa-bars"></i>
 
                 <span>
-                    <%= link_to 'Edit', edit_recrutement_path(@recrutement) %> |
-                    <%= link_to 'Back', recrutements_path %>
+                    <%= link_to 'Edité', edit_recrutement_path(@recrutement) %> |
+                    <%= link_to "Revenir à la page d'accueil", root_path %>
                     
 
                 </span>
@@ -58,8 +58,8 @@
   <div class="content">
     
     <div class="inner">
-      <h1 class="display-3">Hello! vous etes sur le recrutement du club  <%= @recrutement.club.name %> </h1>
-      <p><strong>Deadline:</strong>
+      <h1 class="display-3">Coucou! vous êtes sur le recrutement du club  <%= @recrutement.club.name %> </h1>
+      <p><strong>Date:</strong>
        <%= @recrutement.deadline %></p>
 
      
@@ -77,7 +77,7 @@
 <% end %>
 <% end %>
 <% end %>
-<p>pour acceder a la page d un demande clique sur son blue nom</p>
+<p>Pour accéder à la page d'une demande, clique sur le nom en bleu</p>
     </div>
 
     </div>
@@ -95,7 +95,7 @@
  <%else%>
             <div class="col-md-5 border border-primary shadow p-3 mb-5 bg-white rounded">
 
-                <h3>Nom demandeur: <%= link_to "#{request.user.first_name}", user_path(request.user.id) %>    <%= request.user.last_name %> </h3>
+                <h3>Nom du demandeur: <%= link_to "#{request.user.first_name}", user_path(request.user.id) %>    <%= request.user.last_name %> </h3>
                 <h3> <%= link_to "Afficher", request_path(request.id) %> </h3>
 
            <p>Age: <%= request.user.age %></p>

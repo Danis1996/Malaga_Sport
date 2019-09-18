@@ -169,8 +169,7 @@
                     <p><%= pub[(i+1)*(-1)].content%></p>
                     <p> </p>
                     <hr class="que" href = "#" align="center" width="75%" size="3">
-                    <p data-hook="write-comment__label" class="_24h-e">Commenter</p>
-
+                          <p data-hook="write-comment__label" class="_24h-e">  <li><a href="/publications/<%= pub[(i+1)*(-1)].id%>/commentpub" >Commentaire </a><strong class="a"><%= pub[(i+1)*(-1)].commentpubs.all.count %></strong></li></p>
                 </div>
             </div>
 

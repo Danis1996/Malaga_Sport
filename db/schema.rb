@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_17_124347) do
+ActiveRecord::Schema.define(version: 2019_09_18_154836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 2019_09_17_124347) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_commentaires_on_event_id"
     t.index ["user_id"], name: "index_commentaires_on_user_id"
+  end
+
+  create_table "commentpubs", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "publication_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["publication_id"], name: "index_commentpubs_on_publication_id"
+    t.index ["user_id"], name: "index_commentpubs_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|

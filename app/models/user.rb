@@ -7,6 +7,7 @@ class User < ApplicationRecord
          belongs_to :club, optional: true
          has_many :requests
          has_many :commentaires, dependent: :destroy
+         has_many :commentpubs, dependent: :destroy
          has_many :likes, dependent: :destroy        
          has_many :publications, dependent: :destroy
          has_one_attached :avatar

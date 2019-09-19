@@ -21,62 +21,87 @@
 
 <p id="notice"><%= notice %></p>
 
-  
-
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="wrappe">
-          <div class="menu">
-            
-              <i class="fas fa-bars"></i>
-
-                <span>
-                    <%= link_to 'Edit', edit_recrutement_path(@recrutement) %> |
-                    <%= link_to 'Back', recrutements_path %>
-                    
-
-                </span>
+  <div class="wrapper" style="color: white;">
+   
+     <div class="cardbox" style="background-color: transparent;">
+      <h3 style="text-align: center;">recrutement du club </h5> 
+      <h1 style="text-align: center;"><%= @recrutement.club.name %></h3>
+            <div class="photo-card" style="background-color: transparent;">
+                <h3><%= @recrutement.content%></h3>
             </div>
-        </div>
-  </div>
+    </div>
+
+   <a class="demand btn btn-primary btn-lg" id="<%= @recrutement.id %>" href="#" role="button">Postuler &raquo;</a>
+   <% @recrutement.requests.each do |request| %>
+        <% if current_user == request.user %>
+          <h3>Vous avez déja postulé à cette offre!</h3>
+            <%= link_to "Voir ma demande", request_path(request.id), :class=>" btn btn-primary btn-lg" %>        
+        <% end %>
+  <% end %>
+
+
+<div class="menu" style="margin-left: 1200px; color: black;">           
+  <i class="fas fa-bars"></i>
+    <% if @recrutement.club.admin == current_user%>
+      <span>
+        <%= link_to 'Modifier', edit_recrutement_path(@recrutement) %> |
+        <%= link_to 'Retour', recrutements_path %>                 
+      </span>
+    <% else %>
+        <span>
+          <%= link_to 'Retour', recrutements_path %>               
+        </span>
+    <% end %>
 </div>
 
 
-
-
-
-
-<div class="wrapper">
-
-  
-
+          <% if current_user == @recrutement.club.admin %>
+            <h3>Vous etes le recruteur</h3>
+          <% else %> <% @recrutement.club.members.each do |member| %>           
+              <% if current_user == member %>
+                <h3>Vous faite déja partie du club <%= @recrutement.club.name %></h3>
+              <% end %>
+            <% end %>
+          <% end %>
   </div>
   
-  <div class="content">
-    
+  <div class="content">    
     <div class="inner">
       <h1 class="display-3">Hello! vous etes sur le recrutement du club  <%= @recrutement.club.name %> </h1>
-      <p><strong>Deadline:</strong>
-       <%= @recrutement.deadline %></p>
-
-     
+      <p><strong>Deadline:</strong><%= @recrutement.deadline %></p>     
     </div>
 
-      <div class="img two">
-        
-      </div>
-    <div class="inner">
+  <div class="img two">
+    <h1>ary eto</h1>    
+  </div>
+
+  <div class="inner">
     <h1 class="display-3 text-primary">Listes des demandes</h1>
-<% if @recrutement.club.admin.id == current_user.id%>
-<% @recrutement.club.members.each do |member| %>
-<% if member.id == current_user.id%>
-    <a class="demand btn btn-primary btn-lg" id="<%= @recrutement.id %>" href="#" role="button" >Postuler &raquo;</a>
-<% end %>
-<% end %>
-<% end %>
+      
+
+      
+
+      <% @recrutement.requests.each do |request| %>
+        <% if current_user == request.user %>
+          <h3>Vous avez déja postulé à cette offre!</h3>
+            <a class="demand btn btn-primary btn-lg" id="<%= @recrutement.id %>" href="#" role="button" >Voir mon demande &raquo;</a>       
+        <% else %>
+          <% if current_user == @recrutement.club.admin %>
+            <h3>Vous etes le recruteur</h3>
+          <% else %> <% @recrutement.club.members.each do |member| %>           
+              <% if current_user == member %>
+                <h3>Vous faite déja partie du club <%= @recrutement.club.name %></h3>
+              <% else %>
+                <a class="demand btn btn-primary btn-lg" id="<%= @recrutement.id %>" href="/requests" role="button" >Postuler &raquo;</a>
+                <h1>sdfjvezkrhfjzerhhfbherfbe</h1>
+                <h1>sdfjvezkrhfjzerhhfbherfbe</h1>
+                <h1>sdfjvezkrhfjzerhhfbherfbe</h1>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+              
 <p>pour acceder a la page d un demande clique sur son blue nom</p>
     </div>
 

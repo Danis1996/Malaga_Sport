@@ -31,9 +31,9 @@
               <i class="fas fa-bars"></i>
                 <span>
                     <% if @event.club.admin.id == current_user.id %>
-                    <%= link_to 'Edit', edit_event_path(@event) %> |
+                    <%= link_to 'Edité', edit_event_path(@event) %> |
                     <%end%>
-                    <%= link_to 'Back', root_path %>
+                    <%= link_to "Revenir à la page d'accueil", root_path %>
                 </span>
             </div>
         </div>

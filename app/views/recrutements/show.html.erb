@@ -15,6 +15,7 @@
 <body>
 <p id="notice"><%= notice %></p>
 
+
   <div style="text-align: right; margin-right: 100px;">           
       <% if @recrutement.club.admin == current_user%>
         <span>
@@ -26,6 +27,9 @@
             <%= link_to 'Voir tous les recrutements', recrutements_path %>               
           </span>
       <% end %>
+
+  
+
   </div>
 
 <br>
@@ -79,8 +83,10 @@
   
   <div class="content">    
     <div class="inner">
-      <h1 class="display-3">Hello! vous etes sur le recrutement du club  <%= @recrutement.club.name %> </h1>
-      <p><strong>Deadline:</strong><%= @recrutement.deadline %></p>     
+
+      <h1 class="display-3">Coucou! vous êtes sur le recrutement du club  <%= @recrutement.club.name %> </h1>
+      <p><strong>Date:</strong>
+       <%= @recrutement.deadline %></p>
     </div>
 
   <div class="img two">
@@ -89,6 +95,7 @@
 
   <div class="inner">
     <h1 class="display-3 text-primary">Listes des demandes</h1>
+
       
 
       
@@ -105,16 +112,13 @@
                 <h3>Vous faite déja partie du club <%= @recrutement.club.name %></h3>
               <% else %>
                 <a class="demand btn btn-primary btn-lg" id="<%= @recrutement.id %>" href="/requests" role="button" >Postuler &raquo;</a>
-                <h1>sdfjvezkrhfjzerhhfbherfbe</h1>
-                <h1>sdfjvezkrhfjzerhhfbherfbe</h1>
-                <h1>sdfjvezkrhfjzerhhfbherfbe</h1>
               <% end %>
             <% end %>
           <% end %>
         <% end %>
       <% end %>
               
-<p>pour acceder a la page d un demande clique sur son blue nom</p>
+
     </div>
 
     </div>
@@ -132,7 +136,7 @@
  <%else%>
             <div class="col-md-5 border border-primary shadow p-3 mb-5 bg-white rounded">
 
-                <h3>Nom demandeur: <%= link_to "#{request.user.first_name}", user_path(request.user.id) %>    <%= request.user.last_name %> </h3>
+                <h3>Nom du demandeur: <%= link_to "#{request.user.first_name}", user_path(request.user.id) %>    <%= request.user.last_name %> </h3>
                 <h3> <%= link_to "Afficher", request_path(request.id) %> </h3>
 
            <p>Age: <%= request.user.age %></p>

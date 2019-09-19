@@ -1,3 +1,4 @@
+
 <style type="text/css">
   .que{
     background-color: rgb(84,96,103); 
@@ -6,6 +7,49 @@
     border-style: double;
   }
 </style>
+
+<header>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="position:relative;top: 0px">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="background-image: url('/vendor/green.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="display-4">We are team</h2>
+          <p class="lead" style="color : black;">Don_t keep calm and Play Football</p>
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('/vendor/boy.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="display-4">We are team</h2>
+          <p class="lead" style="color : black;">La jeunesse, l'avenir</p>
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('/vendor/barea.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="display-4">We are team</h2>
+          <p class="lead" style="color : black;">Alefa Madagascar</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+  </div>
+</header>
+<br>
+<br>
 
         <% eve = [] %>
         <% rec = [] %>
@@ -40,7 +84,7 @@
                     -o-background-size: cover;">
                 <div class="story-body text-center">
                  <div class=""><img class="img-circle" src="vendor/jangla.gif" alt="user"></div>
-                  <h3>club</h3>
+                  <h3>Club</h3>
                 </div>      
             </div>
               </a>
@@ -71,7 +115,7 @@
 
             <div class="story-body text-center">
              <div class=""><img class="img-circle" src="vendor/voalavo.gif" alt="user"></div>
-              <h3>Evenement</h3>
+              <h3>Événement</h3>
             </div>      
        </div>
   </a>
@@ -88,7 +132,7 @@
             <div class="cardbox-heading">
              <!-- START dropdown-->
              <div class="dropdown pull-right">
-               <%= link_to "afficher", event_path(eve[(i+1)*(-1)].id), :class=>"btn btn-info" %> 
+               <%= link_to "Afficher", event_path(eve[(i+1)*(-1)].id), :class=>"btn btn-info" %> 
              
              </div><!--/ dropdown -->
              <!-- END dropdown-->
@@ -97,7 +141,7 @@
          <a href="/clubs/<%=eve[(i+1)*(-1)].club.id%>"><img class="img-responsive img-circle" src="vendor/event.jpeg" alt="User"></a>
         </div>
               <div class="media-body">
-               <p class="m-0"><em>Evenement creer par: </em><strong class="a"><%= eve[(i+1)*(-1)].club.name %></strong></p>
+               <p class="m-0"><em>Évenement créé par: </em><strong class="a"><%= eve[(i+1)*(-1)].club.name %></strong></p>
                <style type="text/css">
                  .a{
                   font-size: 20px;
@@ -109,7 +153,7 @@
                   color: black;
                  }
                </style>
-         <small><span>publié le <%= eve[(i+1)*(-1)].updated_at %></span></small>
+         <small><span>Publié le :<%= eve[(i+1)*(-1)].updated_at %></span></small>
 
 
               </div>
@@ -146,7 +190,7 @@
 
     <%else%>
 
-          <li><a href="/events/<%=eve[(i+1)*(-1)].id%>/likes"  data-method = "post"><%= (eve[(i+1)*(-1)].likes.count) == 1 ? 'Like' : 'Likes'%></a><span><%= eve[(i+1)*(-1)].likes.count %> </span></li>
+          <li><a href="/events/<%=eve[(i+1)*(-1)].id%>/likes"  data-method = "post"><%= (eve[(i+1)*(-1)].likes.count) == 1 ? 'Like' : "J'aime"%></a><span><%= eve[(i+1)*(-1)].likes.count %> </span></li>
     <%end%>
        
 <%else%>
@@ -161,11 +205,12 @@
 
             <div class="photo-card que">
                 <div class="photo-background" style="background-image:url(vendor/publication.jpeg);"></div>
-
+               
                 <div class="photo-details">
                     <div class="dropdown pull-right"><%= link_to "afficher", publication_path(pub[(i+1)*(-1)].id), :class=>"btn btn-info" %></div>
-                    <p><em>Publication de: </em><a style="color: rgb(250,250,250); font-size: 20px;" href="/users/<%= pub[(i+1)*(-1)].user.id%>"><%= pub[(i+1)*(-1)].user.first_name %></a></p>
-                    <small><span style="color: rgb(200,200,200);">publié le <%= pub[(i+1)*(-1)].updated_at %></span></small>
+
+                    <p><em>Publication de : </em><strong class="a"><%= pub[(i+1)*(-1)].user.first_name %></strong></p>
+                    <small><span style="color: rgb(200,200,200);">Publié le :<%= pub[(i+1)*(-1)].updated_at %></span></small>
                     <p><%= pub[(i+1)*(-1)].content%></p>
                     <p> </p>
                     <hr class="que" href = "#" align="center" width="75%" size="3">
@@ -181,7 +226,7 @@
              <!-- START dropdown-->
              <div class="dropdown pull-right">
             
-           <%= link_to "afficher", recrutement_path(rec[(i+1)*(-1)].id), :class=>"btn btn-info" %> 
+           <%= link_to "Afficher", recrutement_path(rec[(i+1)*(-1)].id), :class=>"btn btn-info" %> 
                    
              </div><!--/ dropdown -->
              <!-- END dropdown-->
@@ -203,7 +248,7 @@
                   font-family: sans-serif;
                  }
                </style>
-         <small><span>publié le <%= rec[(i+1)*(-1)].updated_at %></span></small>
+         <small><span>Publié le :<%= rec[(i+1)*(-1)].updated_at %></span></small>
 
 
               </div>
@@ -225,8 +270,8 @@
 
         <div class="cardbox-like">
          <ul>
-        <li><a href="#"></a><span> like</span></li>
-          <li><a href="#" title="" class="com"></i></a> <span class="span-last"> comment</span></li>
+        <li><a href="#"></a><span> J'aime</span></li>
+          <li><a href="#" title="" class="com"></i></a> <span class="span-last"> Commenter</span></li>
          </ul>
             </div><!--/ cardbox-like -->        
                   
@@ -251,7 +296,7 @@
       </div> 
     <div class="suggestion-box full-width" style="background-image: url(/vendor/coup.jpeg);text-align: center; color:black">
       <div>
-        <h3 style="background-color: rgb(50,200,60);">Evénement dans ... minutes</h3>
+        <h3 style="background-color: rgb(50,200,60);">Événement dans ... minutes</h3>
         <h2><%= eve[eve.count - 1].title%></h2>
       </div>
       
@@ -259,7 +304,7 @@
         <strong style="background-color: white">Deviner qui va gagner et parier</strong>
         <ul>
           <% cote = rand(1..100)%>
-          <li><a href="#" class="com">Equipe A</a><span> <%= cote %> %</span></li>
+          <li><a href="#" class="com">Équipe A</a><span> <%= cote %> %</span></li>
           <li><span> <%=100 - cote %> %</span><a href="#" title="" class="com">Equipe B</a> </li>
         </ul>
       </div><!--/ cardbox-like -->        
@@ -276,5 +321,5 @@
 <style type="text/css">
   body{
     background-color: rgb(84,96,103);
-  }
+  };
 </style>

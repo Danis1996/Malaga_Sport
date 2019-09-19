@@ -3,6 +3,5 @@
 }
 
 nav a:hover{
-	background-color: #D3D3D3;
-	color: #D3D3D3;
+	background: rgba(0,0,0,0);
 }

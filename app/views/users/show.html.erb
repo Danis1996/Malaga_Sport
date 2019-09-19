@@ -44,16 +44,20 @@
 	</div>
 
 	<div class="player-card-bottom">
-		
+
+		           <div class="btn"><%= link_to "Mettre à jour mon compte", edit_user_registration_path %></div> 
+                    <div class="btn"><%= link_to "Modifier mon profil", edit_user_path %></div> 
+                    <span></span>
+
 		<div class="player-info">
 			<!-- Player Name-->
 			<div class="player-name">
 				<span>
 	<%if @user === current_user %>
          <%if @user.avatar.attached?%>
-		 <strong><%=link_to'Modifier ma photos de profil', edit_user_avatar_path(@user.id)%></strong><br>
+		 <strong><%=link_to'Modifier ma photo de profil', edit_user_avatar_path(@user.id)%></strong><br>
 		 <%else%>
-		 <strong><%=link_to'Ajouter une photos de profil', new_user_avatar_path(@user.id), :style=>'color: black'%> </strong><br>
+		 <strong><%=link_to'Ajouter une photo de profil', new_user_avatar_path(@user.id), :style=>'color: black'%> </strong><br>
 		 <%end%>
 	<%end%>
 					

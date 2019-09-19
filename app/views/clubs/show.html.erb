@@ -108,7 +108,7 @@
 
     <% if user_signed_in? && current_user.id === 'admin.id' %>
 <a href="#" data-clubid ="<%=@club.id%>" data-quarterid="<%=@club.quarter_id%>" class="club_edit">Edit</a> |
-<%= link_to 'Back', clubs_path %>
+<%= link_to "Revenir à la page d'accueil", root_path %>
 <% end %>
 
   

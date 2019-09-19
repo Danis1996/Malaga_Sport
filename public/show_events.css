@@ -1,0 +1,188 @@
+body {
+  font-size: 20px;
+  font-family: 'Source Sans Pro', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  background-image: url(https://photos.tf1.fr/1920/1080/cover-showpage-coupe-du-monde-fifa-2019-e626a0-436b7a-0@1x.webp) ;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size: cover;
+  background-attachment: fixed;
+  height:150%;
+  width:100%; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+  margin: 0;
+  text-transform: uppercase;
+  text-shadow: 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  font-size: 60px;
+  letter-spacing: 6px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 100%;
+  z-index: 2;
+}
+
+
+
+.banner {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/31787/deer-blur.jpg) no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 400px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.banner:after {
+  background: -webkit-radial-gradient(center ellipse, rgba(0, 0, 0, 0) 30%, #000000 100%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 30%, #000000 100%);
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+
+
+}
+
+.logo {
+  left: 50%;
+  margin: 50px 0 50px -150px;
+  opacity: 0.8;
+  position: absolute;
+  width: 300px;
+}
+
+.content {
+  background: #222;
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  margin-top: 400px;
+  padding: 4% 0 200px;
+  position: relative;
+  z-index: 2;
+}
+.content .inner {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 40px 30px;
+}
+
+.img {
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  height: 440px;
+  position: relative;
+  width: 100%;
+}
+.img:after {
+  background: -webkit-radial-gradient(center ellipse, rgba(0, 0, 0, 0) 30%, #000000 100%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 30%, #000000 100%);
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.img.trees {
+  background-image: url(http://www.csve.fr/wp-content/uploads/2016/09/hdbackground.jpg);
+}
+.img.two {
+  background-image: url(https://i.ytimg.com/vi/dgsl5ReJdX8/maxresdefault.jpg);
+}
+.img.four {
+  background-image: url(http://www.madagascar-football.com/medias/images/barea-de-magascar.jpg);
+}
+
+
+
+
+
+.wrappe {
+    width: 780px;
+    margin: 0 auto;
+    background: transparent;
+    height: 350px;
+    text-align: center;
+}
+
+.menu {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border: 0px solid #333;
+    display: inline-block;
+    margin: 15% auto;
+    transition: all 0.8s ease-in-out;
+    background: #fff;
+    cursor: pointer;
+}
+
+.menu span {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.8s ease-in-out;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    line-height: 12px;    
+    font-size: 8px;   
+    padding: 5px;
+}
+
+.menu:hover span{
+    visibility:visible;
+    opacity:1;
+    box-shadow: 0px 12px 16px -12px #666;
+}
+
+.menu span a {
+    color:#333;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu span a:hover {
+    text-shadow: 0 0.3px 0.2px #000;
+}
+
+.menu:hover {
+    transform: rotate(720deg) scale(2);
+}
+
+.menu i{
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.8s ease-in-out;
+}
+
+.menu:hover i{
+    visibility: hidden;
+    opacity: 0;
+}

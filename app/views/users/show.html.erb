@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- FONT (OPTIONAL) -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed:300,400,700"/>
+<link rel="stylesheet" type="text/css" href="/show_users.css">
+
+<!-- ## fut-player-card ## -->
+
+<style type="text/css">
+	
+</style>
+
+</head>
+<body>
+<div class="fut-player-card">
+	<div class="player-card-top">
+		<div class="player-master-info">
+			
+			<div class="player-nation">
+				
+			</div>
+			<div class="player-club">
+				
+			</div>
+		</div>
+		<div class="player-picture">
+
+		    <%if @user.avatar.attached?%>
+		<%= image_tag @user.avatar, alt: 'avatar', :class=>"pdp" %>
+		
+	<%else%>
+		 
+	<%end%>
+	
+		<img src="https://seeklogo.com/images/F/flag-map-of-madagascar-logo-0244E18277-seeklogo.com.png" alt="Mada" draggable="false"/>	
+		</div>
+	</div>
+
+	<div class="player-card-bottom">
+
+		           <div class="btn"><%= link_to "Mettre à jour mon compte", edit_user_registration_path %></div> 
+                    <div class="btn"><%= link_to "Modifier mon profil", edit_user_path %></div> 
+                    <span></span>
+
+		<div class="player-info">
+			<!-- Player Name-->
+			<div class="player-name">
+				<span>
+	<%if @user === current_user %>
+         <%if @user.avatar.attached?%>
+		 <strong><%=link_to'Modifier ma photo de profil', edit_user_avatar_path(@user.id)%></strong><br>
+		 <%else%>
+		 <strong><%=link_to'Ajouter une photo de profil', new_user_avatar_path(@user.id), :style=>'color: black'%> </strong><br>
+		 <%end%>
+	<%end%>
+					
+		<%if @user === current_user %>
+		<h1>Mon profil</h1>
+		    <%= link_to "Mettre à jour mon compte", edit_user_registration_path, :class=>"btn btn-succes" %>
+		 <%else%>
+		 <h1>Profil de <%= @user.pseudonym %></h1>
+		<%end%>
+                </span>
+			</div>
+			<!-- Player Features-->
+			<div class="player-features">
+				<div class="player-features-col">
+					<span>
+						<ul>
+                            <li>Pseudo: <%= @user.pseudonym%> </li>
+                            <li>Prénom: <%= @user.first_name%> </li>
+                            <li>Nom: <%= @user.last_name%> </li>
+                          <% if @user.quarter != nil%>
+                            <li>Quartier:<%= link_to "#{@user.quarter.name}", quarter_path(@user.quarter.id)%> </li>
+                          <% unless @user.club == nil %>
+                            <li>Club: <%= link_to "#{@user.club.name}", club_path(@user.club.id) %> </li>
+                           <% end %>
+                          <% end %>
+					</span>
+					
+					
+				</div>
+				<div class="player-features-col">
+					<span>
+						<ul>
+						<li>Email: <%= @user.email%> </li>
+                       <li>Age: <%= @user.age%> </li>
+                       <li>Genre: <%= @user.gender%> </li>
+                       <li>Description: <%= @user.description%> </li>
+                   </ul>
+					</span>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+

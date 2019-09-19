@@ -1,0 +1,4 @@
+
+<h3>Publication de <%= link_to "#{@publication.user.first_name}", user_path(@publication.user.id), :style=>"color: black" %></h3>
+<p><%= @publication.content%></p>
+<p>publié le <strong><%= @publication.created_at %></strong></p>

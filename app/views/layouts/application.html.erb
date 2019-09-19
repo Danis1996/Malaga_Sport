@@ -15,7 +15,15 @@
 
   <body>
     <%= render partial: "layouts/header" %>
+    
+        <% if user_signed_in? %>
+    <section style="margin-top: 13%">
+      <%else%>
+    <section>
+
+      <%end%>
         <%= yield %>
+</section>
         
     <%= render partial: "layouts/footer" %>
   </body>

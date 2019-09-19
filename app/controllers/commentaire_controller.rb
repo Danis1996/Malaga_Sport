@@ -28,7 +28,7 @@ class CommentaireController < ApplicationController
     @comment.user_id = user.id
     @comment.event_id = @event.id
    if @comment.save
-    redirect_to event_path(@event.id)
+    redirect_to event_commentaire_path(@event.id, @comment.id)
   end
 end
 

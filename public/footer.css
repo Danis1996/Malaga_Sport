@@ -5,14 +5,7 @@
 /* Main Footer */
 footer .main-footer{	padding: 20px 0;	background: #252525;}
 footer ul{	padding-left: 0;	list-style: none;}
-footer {
-	position: relative;
-	height: auto;
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 0px;
-    bottom: 0;
-}
+
 /* Copy Right Footer */
 .footer-copyright {	background: #222;	padding: 5px 0;}
 .footer-copyright .logo {    display: inherit;}

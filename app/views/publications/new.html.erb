@@ -1,2 +1,17 @@
-<h1>Publications#new</h1>
-<p>Find me in app/views/publications/new.html.erb</p>
+
+
+    <%= form_tag url_for(action: 'create'), method: "publication" do %>
+    <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+
+  <div class="field">
+    <%= label_tag :content %>
+    <%= text_area_tag :content %>
+  </div>
+ 
+ 
+
+  <div class="actions">
+    <%= submit_tag "Publier" %>
+  </div>
+
+<% end %>

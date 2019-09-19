@@ -1,22 +1,71 @@
 
-  <br/>
-<br/>
-<br/>
-       <p >publication: <%= @publication.content %></p><br><br>
-      <% if current_user%>
-        <%= form_tag url_for(action: 'create'), method: "commentpub" do %>
+
+                    <img src="/vendor/Zidane.gif" alt="" class="da">
+
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+           
+                    <h3><%= @publication.user.first_name %>  <%= @publication.user.last_name %>  (<%= @publication.user.pseudonym %>)</h3>
+                    <span><i class="fa fa-clock-o"></i>3 min ago</span>
+                 
+                 
+                    <p><%= @publication.content %>.</p>
+                
+                        <ul>
+                          <li>
+                               <% @publication.commentpubs.each do |coms| %>
+                           
+                                <img src="images/resources/bg-img1.png" alt="">  <%= User.find(coms.user_id).first_name %> <%= User.find(coms.user_id).last_name %>
+                              </div>
+                              <div class="comment">
+                               
+
+                <p><%= coms.content%>.</p>
+
+    
+
+
+                                <a href="/publications/<%= @publication.id %>/commentpub/<%=coms.id%>/">voir</a>
+                              </div>
+                            </div>
+                            <%end%><!--comment-list end-->
+                         
+              <div class="post-comment-box">
+                <h3><%= @publication_commentpubs_count %> Comments</h3>
+                <div class="user-poster">
+                  <div class="usr-post-img">
+                    <img src="/vendor/Zidane.gif" class="da">
+
+                  </div>
+                  <div class="post_comment_sec">
+                   <%= form_tag url_for(action: 'create'), method: "commentpub" do %>
 <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
-     
-      <%= label_tag 'Content' %>
-      <%= text_area_tag 'content' %>
-      <br /> <br />
-      <%= submit_tag "Create commentaire" %>
-    <% end %>
-<% end %>
-      <h2>Commentaires (<%= @publication_commentpubs_count %>)   </h2>
-      <% @publication.commentpubs.each do |coms| %>
-      <strong style="color: blue;"><%= User.find(coms.user_id).first_name %></strong><br>
-      <%= coms.content%><br>
-  <a href="/publications/<%= @publication.id %>/commentpub/<%=coms.id%>/">voir</a>
-  <br><br><br><br>
-      <%end%>
+                 
+                       <%= text_area_tag 'content' %>
+                      <button type="submit">Commenter</button>
+                   
+                       <% end %>
+                  </div><!--post_comment_sec end-->
+                </div><!--user-poster end-->
+              </div><!--post-comment-box end-->
+            
+            </div>
+            
+          </div>
+        </div><!--forum-questions-sec end-->
+      </div>
+    <script type="text/javascript">
+
+    </script>

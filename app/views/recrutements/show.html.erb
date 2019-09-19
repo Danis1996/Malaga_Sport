@@ -11,49 +11,61 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
 <link rel="stylesheet" type="text/css" href="/show_recrutements.css">
 
-<style class="cp-pen-styles">
-
-
-
-</style>
 </head>
 <body>
-
 <p id="notice"><%= notice %></p>
 
-  <div class="wrapper" style="color: white;">
-   
-     <div class="cardbox" style="background-color: transparent;">
-      <h3 style="text-align: center;">recrutement du club </h5> 
-      <h1 style="text-align: center;"><%= @recrutement.club.name %></h3>
-            <div class="photo-card" style="background-color: transparent;">
-                <h3><%= @recrutement.content%></h3>
-            </div>
-    </div>
-
-   <a class="demand btn btn-primary btn-lg" id="<%= @recrutement.id %>" href="#" role="button">Postuler &raquo;</a>
-   <% @recrutement.requests.each do |request| %>
-        <% if current_user == request.user %>
-          <h3>Vous avez déja postulé à cette offre!</h3>
-            <%= link_to "Voir ma demande", request_path(request.id), :class=>" btn btn-primary btn-lg" %>        
-        <% end %>
-  <% end %>
-
-
-<div class="menu" style="margin-left: 1200px; color: black;">           
-  <i class="fas fa-bars"></i>
-    <% if @recrutement.club.admin == current_user%>
-      <span>
-        <%= link_to 'Modifier', edit_recrutement_path(@recrutement) %> |
-        <%= link_to 'Retour', recrutements_path %>                 
-      </span>
-    <% else %>
+  <div style="text-align: right; margin-right: 100px;">           
+      <% if @recrutement.club.admin == current_user%>
         <span>
-          <%= link_to 'Retour', recrutements_path %>               
+          <%= link_to 'Modifier', edit_recrutement_path(@recrutement) %> |
+          <%= link_to 'Voir tous les recrutements', recrutements_path %>                 
         </span>
-    <% end %>
-</div>
+      <% else %>
+          <span>
+            <%= link_to 'Voir tous les recrutements', recrutements_path %>               
+          </span>
+      <% end %>
+  </div>
 
+<br>
+
+  <div class="wrapper" style="color: white;">
+     <div class="cardbox" style="background-color: transparent;">
+      <h5 style="text-align: center;">recrutement du club </h5> 
+      <h3 style="text-align: center;"><%= @recrutement.club.name %></h3><br><br>
+
+      <div class="photo-card" style="background-color: transparent; text-align: center;">
+          <i><%= @recrutement.content%></i>
+      </div>
+      <div style="text-align: center; color: rgb(150,150,150);">
+          <strong>Postuler avant le: <%= @recrutement.deadline %></strong>
+      </div>
+    </div>
+  </div>  
+
+<br>
+
+<div style=" text-align: center;">
+    <% unless current_user == @recrutement.club.admin || @recrutement.club.members.include?(current_user) %>
+    <% @recrutement.requests.each do |request| %>
+      <% unless request.user == current_user %>
+        <a class="demand btn btn-primary btn-lg" id="<%= @recrutement.id %>" href="#" role="button">Postuler &raquo;</a>
+      <% end %>
+    <% end %>
+    <% end %> 
+
+       <% @recrutement.requests.each do |request| %>
+            <% if current_user == request.user %>
+              <i style="color: rgb(190,190,190);">Vous avez déja postulé à cette offre!</i><br>
+                <%= link_to "Voir ma demande", request_path(request.id), :class=>" btn btn-primary btn-lg" %>
+            <% end %>
+
+            <% if request.user == current_user%>
+
+            <% end %>
+      <% end %>
+</div>
 
           <% if current_user == @recrutement.club.admin %>
             <h3>Vous etes le recruteur</h3>

@@ -11,14 +11,13 @@ class RequestsController < ApplicationController
   # GET /requests/1
   # GET /requests/1.json
   def show
+    
   end
 
   # GET /requests/new
   def new
-
-   @request = Request.new
-     @recrutement = Recrutement.find(params['data_value'])
-
+    @request = Request.new
+    @recrutement = Recrutement.find(params['data_value'])
   end
 
   # GET /requests/1/edit
@@ -30,7 +29,7 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create
   @request = Request.create('application_letter' => params[:application_letter],'parcours' => params[:parcours], recrutement_id: params['recrutement_id'], user_id: current_user.id)
- @user = current_user
+  @user = current_user
 
     respond_to do |format|
       if @request.save

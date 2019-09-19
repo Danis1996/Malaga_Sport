@@ -1,11 +1,15 @@
+<style type="text/css">
+  body {
+    background-image: url(/vendor/boy.jpg);
+  }
+</style>
 
-
-       <div class="cardbox que">
+       <div class="cardbox que" style="background-color: transparent;">
 <%= form_tag url_for(action: 'create'), method: "comment" do %>
 <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
             <div class="photo-card" style="background-color: transparent;">
-                <div class="photo-background">
-                  
+                <div class="photo-background" style="margin-left: 40px;">
+                  <br><br>
                   <p><em>Évenement du club : </em><strong><%= @event.club.name %></strong></p>
 
                   <i>Titre de l'événement :</i>
@@ -16,23 +20,25 @@
                 </div>
 
                
-                <div class="photo-details">
-                <h2>Commentaires : (<%= @event_comments_count %>)   </h2>
-                <% @event.commentaires.each do |coms| %>
+                <div class="photo-details" style="background-color: transparent;">
+                <i>Nombre de commentaire : (<%= @event_comments_count %>)   </i><br>
+                <% @event.commentaires.each_with_index do |coms, index| %>
 
-                <strong style="color: blue;"><%= User.find(coms.user_id).first_name %></strong><br>
+                <i><%= index + 1%>/</i><strong style="color: blue;"><%= User.find(coms.user_id).first_name %></strong><br>
                 <%= coms.content%><br>
-            <a href="/events/<%= @event.id %>/commentaire/<%=coms.id%>/">Voir</a>
-              <% if current_user%>
+                  <a style="color: black;" href="/users/<%= coms.user.id %>/">Voir l'auteur</a>
+                  <% if current_user%>
 
                 <%= form_tag url_for(action: 'create'), method: "commentaire" do %>
                 <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
-             
-              <%= label_tag 'Contenu' %>
-              <%= text_area_tag 'content' %>
+             <div class="form-group">
+               
+              <%= label_tag 'Contenu' %><br />
+              <%= text_area_tag 'content'%>
+             </div>
               <br /> <br />
 
-              <%= submit_tag "Créer un commentaire" %>
+              <%= submit_tag "Créer un commentaire" , class: "btn btn-lg btn-primary btn-block" %>
 
             <% end %>
             <% end %>

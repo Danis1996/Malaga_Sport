@@ -6,11 +6,11 @@
 <br/>
 <br/>
 
-      <h5>title event: <%= @event.title %></h5>
+      <h5>Titre de l'événement : <%= @event.title %></h5>
 
 
        
-      <p >description event: <%= @event.description %></p><br><br>
+      <p >Déscription de l'événement: <%= @event.description %></p><br><br>
 
         <p ><%= @comment.content %></p><br>
  <% if current_user && current_user.id == @comment.user_id %>

@@ -91,5 +91,4 @@ $(document).on('turbolinks:load',function(){
           window.location.replace('/clubs/'+id+'/edit?data_value='+quarter)
      })
 
-
 })

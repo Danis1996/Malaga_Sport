@@ -18,25 +18,25 @@
 <% end %>
 <% end %>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th colspan="3"></th>
+      <th scope="col" style="text-align:center;">Name</th>
+      <th scope="col" style="text-align:center;">Category</th>
+      <th colspan="3" scope="col" style="text-align:center;"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @clubs.each do |club| %>
       <tr>
-        <td><%= club.name %></td>
-        <td><%= club.category %></td>
-        <td><%= link_to 'Afficher', club %></td>
+        <td style="text-align:center;"><%= club.name %></td>
+        <td style="text-align:center;"><%= club.category %></td>
+        <td style="text-align:center;"><%= link_to 'Afficher', club %></td>
 
         <% if user_signed_in? && current_user.id === 'admin.id' %>
-                <td><a href="#" data-clubid ="<%=@club.id%>" data-quarterid="<%=@club.quarter_id%>" class="club_edit">Edit</a></td>
-                <td><%= link_to 'Supprimer', club, method: :delete, data: { confirm: 'Voulez vous vraiment supprimer ce club?' } %></td>
+                <td style="text-align:center;"><a href="#" data-clubid ="<%=@club.id%>" data-quarterid="<%=@club.quarter_id%>" class="club_edit">Edit</a></td>
+                <td style="text-align:center;"><%= link_to 'Supprimer', club, method: :delete, data: { confirm: 'Voulez vous vraiment supprimer ce club?' } %></td>
         <%end%>
 
       </tr>

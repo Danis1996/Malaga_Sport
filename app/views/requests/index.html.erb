@@ -17,6 +17,7 @@
         <td><%= request.application_letter %></td>
         <td><%= request.parcours %></td>
         <td><%= link_to 'Show', request %></td>
+
         <td><a href="#" data-requestid ="<%=@request.id%>" data-id="<%=@request.recrutement_id%>" class="requete">Edité</a> </td>
         <td><%= link_to 'Supprimer', request, method: :delete, data: { confirm: 'Êtes-vous sûr?' } %></td>
       </tr>

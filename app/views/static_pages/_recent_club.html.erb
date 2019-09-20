@@ -1,61 +1,38 @@
+                        
+<% club_array = [] %>
+<%= Club.all.each do |club|%>
+<% club_array << club %>
+<%end%>
+
+
                         <h3 class="uk-panel-title">Nouveau Club</h3>
+                        <% 3.times do |last_number|%>
                         <article class="has-context ">
                             <div class="latest-news-wrap">
                                 <div class="img-wrap">
-                                    <a href="#">
-                                    <img src="images/35b8bf93115eb2b8da9f8b4f41fdb0fd.jpg" class="img-polaroid" alt="">
-                                    </a>        
+                                    <a href="/clubs/<%= club_array[(last_number+1)*(-1)].id %>">
+                                <% if club_array[(last_number+1)*(-1)].picture.attached? %>
+                                    <%= image_tag club_array[(last_number+1)*(-1)].picture, alt: 'picture', :class=>"img-polaroid" %>
+                                <% else %>
+                                <img src="/vendor/images/35b8bf93115eb2b8da9f8b4f41fdb0fd.jpg" class="img-polaroid" alt="">
+                                    </a>
+                                <% end %>
+                                            
                                 </div>
                                 <div class="info">
                                     <div class="date">
-                                        November 25, 2015            
+                                        <%= club_array[(last_number+1)*(-1)].created_at %>     
                                     </div>
                                     <div class="name">
                                         <h4>
-                                            <a href="#">
-                                            Suspendisse purus enim, dictum sed lorem ac, sodales maximus est                    </a>        
+                                            <a href="<%= club_array[(last_number+1)*(-1)] %>">
+                                                <%= club_array[(last_number+1)*(-1)].name %>
+                                            </a><br>
+                                            <em><%= club_array[(last_number+1)*(-1)].category %></em>        
                                         </h4>
                                     </div>
                                 </div>
                             </div>
                         </article>
-                        <article class="has-context ">
-                            <div class="latest-news-wrap">
-                                <div class="img-wrap">
-                                    <a href="#">
-                                    <img src="images/4e9ed1f24d1f63b923e67456774158a3.jpg" class="img-polaroid" alt="">
-                                    </a>        
-                                </div>
-                                <div class="info">
-                                    <div class="date">
-                                        November 20, 2015            
-                                    </div>
-                                    <div class="name">
-                                        <h4>
-                                            <a href="#">
-                                            Suspendisse purus enim, dictum sed lorem ac, sodales maximus est                    </a>        
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="has-context ">
-                            <div class="latest-news-wrap">
-                                <div class="img-wrap">
-                                    <a href="#">
-                                    <img src="images/19896c58825d0206bd858f7e50bf51b2.jpg" class="img-polaroid" alt="">
-                                    </a>        
-                                </div>
-                                <div class="info">
-                                    <div class="date">
-                                        November 20, 2015            
-                                    </div>
-                                    <div class="name">
-                                        <h4>
-                                            <a href="#">
-                                            Cum sociis natoque penatibus et magnis dis parturient                    </a>       
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
+                        <%end%>
+                        

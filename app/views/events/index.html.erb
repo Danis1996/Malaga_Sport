@@ -28,7 +28,8 @@
     <%end%>
   </tbody>
 </table>
-
+<%if current_user%>
 <% if current_user.club != nil%>
 <%= link_to 'Nouvelle événement', new_event_path %>
+<%end%>
 <%end%>

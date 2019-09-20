@@ -46,7 +46,8 @@
                                 <div class="uk-grid">
                                     <div class="uk-width-large-5-10 uk-width-small-1-1 left-part">
                                         <div class="top-title">
-                                            <h2>Profil de <span><%= @user.pseudonym %></span></h2>
+
+                                            <h2>Profil de <span><%= @user.pseudonym %> / <%= link_to "Editer", edit_user_registration_path(@current_user) %></span></h2>
                                         </div>
                                             <span>
                                                 <ul>

@@ -1,40 +1,64 @@
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <br><br><br>
-      <%= form_for resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-signin mt-3" } do |f| %>
-        <h1 class="h3 mb-3 font-weight-normal text-center">S'inscrire</h1>
-        <%= devise_error_messages! %>
-        <div class="form-group">
-          <%= f.label :email, "Email" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-        </div>
-        <div class="form-group">
-    <%= f.label :Username %><br />
-    <%= f.text_field :pseudonym, class: "form-control" %>
-  </div>
+        <div class="tm-top-d-box  ">
+            <div class="uk-container uk-container-center">
+                <section id="tm-top-d" class="tm-top-d uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
 
-  <div class="form-group">
-    <%= f.label :quarter %><br />
-    <%= f.select :quarter_id, Quarter.all.map{ |c| [c.name, c.id] }, class: "form-control" %>
-  </div>
-        <div class="actions mt-5">
-          <%= f.submit "S'inscrire", class: "btn btn-lg btn-primary btn-block" %>
-        </div>
-      <% end %>
+                    <div class="uk-width-1-1">
+                        <div class="uk-panel">
+                            <div class="donate-wrap">
+                                <div class="donate-inner">
+                                    <h3><span>S'inscrire</span></h3>
+                                    <div class="uk-grid">
+                                        <div class="uk-width-8-10 uk-push-1-10 intro-text">
+                                         
+
+
+
+  <%= form_for resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-signin mt-3" } do |f| %>
+
+        <%= devise_error_messages! %>
+
+      
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w", placeholder: "Email" %><br><br><br />
+     
+        
+          <%= f.password_field :password, autocomplete: "new-password", class: "w",  placeholder: "Password 6 characters minimum " %><br><br><br />
+   
+   
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w", placeholder: "Password confirmation " %><br><br><br />
+       
+   
+           <%= f.text_field :pseudonym, class: "w", placeholder: "Username"  %><br><br> <br>
+ 
+ 
+          <%= f.select :quarter_id, Quarter.all.map{ |c| [c.name, c.id] }, {include_blank: "Quartier"} , {class: "w"}%><br><br>
+
+ 
+       
       <%= render "devise/shared/links" %>
-    </div>
-  </div>
-</div>
+
+<style type="text/css">
+  .w{
+    width: 400px; height: 30px;
+    text-align: "center";
+  }
+</style>
+
+
+                                          </div>
+                                    </div>
+                                 
+                                       
+                                        <br>
+                                        <br>
+                                       
+                                          <%= f.submit "S'inscrire", :class=>"donate-btn" %>
+
+                                    
+                                </div> <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>

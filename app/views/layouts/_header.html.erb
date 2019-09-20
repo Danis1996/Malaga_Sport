@@ -6,10 +6,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sport.AK</title>
     <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
     <link href="/vendor/images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
     <link href="/vendor/css/akslider.css" rel="stylesheet" type="text/css" />
@@ -101,66 +103,120 @@
             <div style="height: 70px;" class="uk-sticky-placeholder">
                 <nav style="margin: 0px;" class="tm-navbar uk-navbar" data-uk-sticky="">
                     <div class="uk-container uk-container-center">
-                        <a class="tm-logo uk-float-left" href="index.html">
-                            <img src="images/logo-img.png" alt="logo" title="logo"> <span>Sport<em>.ak</em></span>
+                        <a class="tm-logo uk-float-left" href="/">
+                            <img src="/vendor/images/logo-img.png" alt="logo" title="logo"> <span>Malaga<em>Sport</em></span>
                         </a>
 
                         <ul class="uk-navbar-nav uk-hidden-small">
-                            <li class="uk-parent uk-active" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a href="index.html">Home</a>
+                            <li class="uk-parent" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a>Club</a>
                                 <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-width-1">
                                     <div class="uk-grid uk-dropdown-grid">
                                         <div class="uk-width-1-1">
                                             <ul class="uk-nav uk-nav-navbar">
-                                                <li><a class="yellow-scheme" href="../yellow/index.html">Yellow Color Scheme</a>
-                                                </li>
-                                                <li><a class="blue-scheme" href="../blue/index.html">Blue Color Scheme</a>
-                                                </li>
-                                                <li><a class="red-scheme" href="../red/index.html">Red Color Scheme</a>
-                                                </li>
-                                                <li><a href="offline.html">Offline Page</a>
-                                                </li>
-                                                <li><a href="404.html">Error Page</a>
+                                                <% if user_signed_in? %>
+                                                <% a = 0 %>
+                                                    <li>                                               
+                                                        <% Club.all.each do |club| %>
+                                                            <% if club.admin.id == current_user.id %>
+                                                                <%=link_to "Mon club", club_path(club.id)%>          
+                                                            <% else %>
+                                                                <% a+= 1%>
+                                                            <% end %>
+                                                        <% end %>
+                                                        <%if a == Club.all.count %>
+                                                            <%=link_to "Créer un club", new_club_path%> 
+                                                        <% end %>
+                                                    </li>
+                                                <% end %>
+                                                    <li>
+                                                        <%=link_to "liste des clubs", clubs_path%>
+                                                    </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="uk-parent" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a>Recrutements</a>
+                                <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-width-1">
+                                    <div class="uk-grid uk-dropdown-grid">
+                                        <div class="uk-width-1-1">
+                                            <ul class="uk-nav uk-nav-navbar">
+                                                <li>
+                                                    <%=link_to "Voir tous les recrutements", recrutements_path%>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a href="about.html">About</a></li>
-                            <li class="uk-parent" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a href="#">Pages</a>
+                            <li class="uk-parent" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a>Evenement</a>
                                 <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-width-1">
                                     <div class="uk-grid uk-dropdown-grid">
                                         <div class="uk-width-1-1">
                                             <ul class="uk-nav uk-nav-navbar">
-                                                <li><a href="players.html">Players</a>
+                                                <li>
+                                                    <%=link_to "Voir tous les évènements", events_path%>
                                                 </li>
-                                                <li><a href="gallery.html">Gallery</a>
+                                                <li>
+                                                    <% Club.all.each do |club| %>
+                                                        <% if club.admin.id == current_user.id %>
+                                                            <a href="#" class="lasa" id="<%= club.id %>">Créer un évenement</a>         
+                                                        <% end %>
+                                                    <% end %>                                  
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li class="uk-parent" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a href="match-list.html">Match</a>
+                            <li class="uk-parent" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a>Publication</a>
                                 <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-width-1">
                                     <div class="uk-grid uk-dropdown-grid">
                                         <div class="uk-width-1-1">
                                             <ul class="uk-nav uk-nav-navbar">
-                                                <li><a href="results.html">Results</a>
+                                                <li>
+                                                    <%=link_to "Voir tous les Publications", publications_path%>
                                                 </li>
+                                                <% if user_signed_in? %>
+                                                <li>
+                                                    <%=link_to "Publier", new_publication_path%>                        
+                                                </li>
+                                                <% end %> 
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li><a href="news.html">News</a>
+                            <li class="uk-parent" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a><img src="/vendor/images/logo-img.png" alt="logo" title="logo" class="pdp"></a>
+                                <style type="text/css"></style>
+                                <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-width-1">
+                                    <div class="uk-grid uk-dropdown-grid">
+                                        <div class="uk-width-1-1">
+                                            <ul class="uk-nav uk-nav-navbar">
+                                                <% if user_signed_in? %>
+                                                <li>
+                                                    <%= link_to "Mon profil", user_path(current_user.id)%>
+                                                </li>
+                                                <li>
+                                                    <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete %>
+                                                </li>
+                                                <% else %>
+                                                <li>
+                                                    <%= link_to "Se connecter", new_user_session_path %> 
+                                                </li>
+                                                <li>
+                                                    <%= link_to "S'incrire", new_user_registration_path %> 
+                                                </li>
+                                                <% end %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
-                            <li><a href="category.html">Shop</a>
-                            </li>
-                            <li><a href="contact.html">Contact</a>
+                            <li>
+                            
                             </li>
                         </ul>
-                        <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas=""></a>
                     </div>
                 </nav>
             </div>

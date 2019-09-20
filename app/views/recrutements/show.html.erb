@@ -111,7 +111,7 @@
               <% if current_user == member %>
                 <h3>Vous faite déja partie du club <%= @recrutement.club.name %></h3>
               <% else %>
-                <a class="demand btn btn-primary btn-lg" id="<%= @recrutement.id %>" href="/requests" role="button" >Postuler &raquo;</a>
+                <a class="demand btn btn-primary btn-lg" id="<%= @recrutement.id %>" href="#">Postuler &raquo;</a>
               <% end %>
             <% end %>
           <% end %>

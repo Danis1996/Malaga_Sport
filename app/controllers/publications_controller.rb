@@ -10,6 +10,7 @@ class PublicationsController < ApplicationController
     @publication_commentpubs_count = @publication.commentpubs.all.count
   end
   def index
+     @publications = Publication.all
   end
   def update
   end

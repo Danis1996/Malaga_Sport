@@ -7,6 +7,11 @@
  * @author       Alexandr Khmelnytsky (support@torbara.com)
  */
 
+.lik {
+    color: blue;
+}
+
+
 .akslider-module .uk-dotnav {
     font-size: 0;
     text-align: center !important;

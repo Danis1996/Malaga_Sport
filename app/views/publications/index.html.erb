@@ -1,0 +1,7 @@
+<br><br><br><br><br><br><br>
+
+<% @publications.each do |publication|%>
+<h1><%= publication.user.first_name%></h1>
+<p><%= publication.content%></p><br>
+<em><%= publication.created_at%></em><br>
+<% end %>

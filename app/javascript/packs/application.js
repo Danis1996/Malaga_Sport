@@ -15,7 +15,7 @@ Rails.start()
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 $(document).on('turbolinks:load',function(){
-$('.envoi').off("click").on("click",function(){
+     $('.envoi').off("click").on("click",function(){
                var id = $(this).attr('id');
                Rails.ajax({
                     url: "/recrutements/new",
@@ -27,7 +27,7 @@ $('.envoi').off("click").on("click",function(){
                     error: function(data) {}
                     })
           })
-$('.demand').off("click").on("click",function(){
+     $('.demand').off("click").on("click",function(){
                var id = $(this).attr('id');
                Rails.ajax({
                     url: "/requests/new",
@@ -39,7 +39,7 @@ $('.demand').off("click").on("click",function(){
                     error: function(data) {}
                     })
           })
-$('.lasa').off("click").on("click",function(){
+     $('.lasa').off("click").on("click",function(){
                var id = $(this).attr('id');
                Rails.ajax({
                     url: "/events/new",
@@ -53,4 +53,4 @@ $('.lasa').off("click").on("click",function(){
                     })
           })
           
-    });
+ });

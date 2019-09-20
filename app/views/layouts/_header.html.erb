@@ -158,9 +158,11 @@
                                                     <%=link_to "Voir tous les évènements", events_path%>
                                                 </li>
                                                 <li>
+                                                   <% if user_signed_in?%>
                                                     <% Club.all.each do |club| %>
                                                         <% if club.admin.id == current_user.id %>
                                                             <a href="#" class="lasa" id="<%= club.id %>">Créer un évenement</a>         
+                                                        <% end %>
                                                         <% end %>
                                                     <% end %>                                  
                                                 </li>

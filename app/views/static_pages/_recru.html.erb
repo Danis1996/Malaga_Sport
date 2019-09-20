@@ -11,11 +11,11 @@
                 <div class="wrapper">
                     <div class="img-wrap uk-flex-wrap-top">
                         <% if rec[(i+1)*(-1)].club.picture.attached? %>
-                            <a href="news-single.html">
+                            <a href="/recrutements/<%= rec[(i+1)*(-1)].id %>">
                             <img src="<%= rec[(i+1)*(-1)].club.picture %>" class="img-polaroid" alt="">
                             </a> 
                         <% else %>
-                            <a href="news-single.html">
+                            <a href="/recrutements/<%= rec[(i+1)*(-1)].id %>">
                             <img src="/vendor/jangla.gif" class="img-polaroid" alt="">
                             </a>
                         <% end %>

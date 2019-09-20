@@ -158,12 +158,15 @@
                                                     <%=link_to "Voir tous les évènements", events_path%>
                                                 </li>
                                                 <li>
-                                                   <% if user_signed_in?%>
+                                                    <% if current_user %>
+                                                    <% if Club.all.count > 0 %>
+                                                  
                                                     <% Club.all.each do |club| %>
                                                         <% if club.admin.id == current_user.id %>
                                                             <a href="#" class="lasa" id="<%= club.id %>">Créer un évenement</a>         
                                                         <% end %>
-                                                        <% end %>
+                                                    <% end %>
+                                                    <% end %>
                                                     <% end %>                                  
                                                 </li>
                                             </ul>
@@ -189,6 +192,7 @@
                                     </div>
                                 </div>
                             </li>
+
                             <li class="uk-parent" data-uk-dropdown="{'preventflip':'y'}" aria-haspopup="true" aria-expanded="false"><a><img src="/vendor/images/logo-img.png" alt="logo" title="logo" class="pdp"></a>
                                 <style type="text/css"></style>
                                 <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-width-1">

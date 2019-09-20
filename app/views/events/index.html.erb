@@ -1,35 +1,112 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<body class="tm-isblog">
+    <p id="notice"><%= notice %></p>
 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col" style="text-align:center;">Start date</th>
-      <th scope="col" style="text-align:center;">Duration</th>
-      <th scope="col" style="text-align:center;">Title</th>
-      <th scope="col" style="text-align:center;">Description</th>
-      <th scope="col" style="text-align:center;">Price</th>
-      <th scope="col" style="text-align:center;">Location</th>
-      <th colspan="3" style="text-align:center;"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @events.each do |event| %>
-    <tr>
-      <td style="text-align:center;"><%= event.start_date %></td>
-        <td style="text-align:center;"><%= event.duration %></td>
-        <td style="text-align:center;"><%= event.title %></td>
-        <td style="text-align:center;"><%= event.description %></td>
-        <td style="text-align:center;"><%= event.price %></td>
-        <td style="text-align:center;"><%= event.location %></td>
-        <td style="text-align:center;"><%= link_to 'Afficher', event %></td>
-    </tr>
-    <%end%>
-  </tbody>
-</table>
-<%if current_user%>
-<% if current_user.club != nil%>
-<%= link_to 'Nouvelle événement', new_event_path %>
-<%end%>
-<%end%>
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+
+    <div class="over-wrap">
+        <div class="tm-top-a-box tm-full-width tm-box-bg-1 ">
+            <div class="uk-container uk-container-center">
+                <section id="tm-top-a" class="tm-top-a uk-grid uk-grid-collapse" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
+                    <div class="uk-width-1-1 uk-row-first">
+                        <div class="uk-panel">
+                            <div class="uk-cover-background uk-position-relative head-match-wrap" style="height: 590px; background-image: url('/vendor/images/ok.jpg');">
+                                <img class="uk-invisible" src="/images/head-bg-match.jpg" alt="">
+                                <div class="uk-position-cover uk-flex-center head-news-title">
+                                    <h1>
+                                        Events
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="uk-container uk-container-center alt">
+            <ul class="uk-breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li class="uk-active"><span>Events</span></li>
+            </ul>
+        </div>
+
+       
+                    <main id="tm-content" class="tm-content">
+                        <% @events.each do |event| %>
+                        <div class="match-list-wrap">
+                            <div class="match-list-item">
+                                <div class="date">
+                                    <%= event.id %>     
+                                </div>
+                                <div class="logo">
+                                    <a href="match-single.html">
+                                    <img src="images/team-ava.png" class="img-polaroid" alt="England VS Amsterdam (2015-11-14)" title="England VS Amsterdam (2015-11-14)"></a>                                     
+                                </div>
+                                <div class="team-name">
+                                    Start date
+                                    <%= event.start_date %>               
+                                </div>
+                                <div class="team-name">
+                                    Duration
+                                    <%= event.duration %>               
+                                </div>
+                                <div class="team-name">
+                                    Title
+                                    <%= event.title %>             
+                                </div>
+                                <div class="team-name">
+                                    Description
+                                    <%= event.description %>            
+                                </div>
+                                <div class="team-name">
+                                    Price
+                                    <%= event.price %>             
+                                </div>
+                                <div class="logo">
+                                    <a href="match-single.html">
+                                    <img src="images/team-ava1.png" class="img-polaroid" alt="England VS Amsterdam (2015-11-14)" title="England VS Amsterdam (2015-11-14)"></a>                                    
+                                </div>
+                                <div class="location">
+                                    <address>
+                                        Location
+                                        <%= event.location %>
+                                    </address>
+                                </div>
+                                <div class="va-view-wrap">
+                                    <%= link_to 'Afficher', event %>
+                                    
+                                    
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                      <%end%>  
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        <div class="tm-bottom-e-box tm-full-width  ">
+            <div class="uk-container uk-container-center">
+                <section id="tm-bottom-e" class="tm-bottom-e uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
+                    <div class="uk-width-1-1 uk-row-first">
+                        <div class="uk-panel">
+                            <img src="/vendor/images/mlay.jpg" alt="">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+</body>
+

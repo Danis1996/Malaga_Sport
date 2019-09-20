@@ -83,7 +83,7 @@
                     </div>
 
                     <div class="uk-panel news-sidebar">
-                            <%= render partial: "static_pages/recent_club" %>
+                            <%= render partial: "static_pages/publication" %>
                     </div>
                     <% if current_user %>
                       <div class="uk-panel tags-sidebar">
@@ -97,9 +97,14 @@
                               </a>
                           <% end %>
                           </div>
-                          <div style="clear: both;"></div>
+                          <div style="clear: both;">
+                            
+                          </div>
                       </div>
                     <% end %>
+                    <div class="uk-panel news-sidebar">
+                            <%= render partial: "static_pages/recent_club" %>
+                    </div>
                 </aside>
               </div>
       </div>

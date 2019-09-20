@@ -160,6 +160,7 @@
                                                 <li>
                                                     <% if current_user %>
                                                     <% if Club.all.count > 0 %>
+                                                  
                                                     <% Club.all.each do |club| %>
                                                         <% if club.admin.id == current_user.id %>
                                                             <a href="#" class="lasa" id="<%= club.id %>">Créer un évenement</a>         

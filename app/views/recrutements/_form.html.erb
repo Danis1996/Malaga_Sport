@@ -26,6 +26,9 @@
           <%= label_tag :deadline %>
           <%= date_field_tag :deadline, @recrutement.deadline %>
         </div>
+        <div class="field">
+        <input type="hidden" name="club_id" value="<%=@club.id%>">
+        </div>
 
         <div class="actions mt-5">
           <%= submit_tag "Créer un recrutement", class: "btn btn-lg btn-primary btn-block" %>

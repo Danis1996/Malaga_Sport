@@ -1,54 +1,4 @@
 
-<p id="notice"><%= notice %></p>
-
-<h1>Liste des Clubs</h1>
-<% if user_signed_in? %>
- <% a = 0 %>
-<% @clubs.each do |club| %>
-
-  <% if club.admin.id == current_user.id %>
-  <h1><%= link_to 'Mon club', club_path(club.id) %></h1>
-    
-  <% else %>
-    <% a+= 1%>
-  <% end %>
-<% end %>
-<%if a == @clubs.count %>
-  <h1><%= link_to 'Créer un club', new_club_path %></h1>
-  
-<% end %>
-<% end %>
-
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col" style="text-align:center;">Nom :</th>
-      <th scope="col" style="text-align:center;">Catégorie :</th>
-      <th colspan="3" scope="col" style="text-align:center;"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @clubs.each do |club| %>
-      <tr>
-        <td style="text-align:center;"><%= club.name %></td>
-        <td style="text-align:center;"><%= club.category %></td>
-        <td style="text-align:center;"><%= link_to 'Afficher', club %></td>
-
-        <% if user_signed_in? && current_user.id === 'admin.id' %>
-                <td style="text-align:center;"><a href="#" data-clubid ="<%=@club.id%>" data-quarterid="<%=@club.quarter_id%>" class="club_edit">Éditer</a></td>
-                <td style="text-align:center;"><%= link_to 'Supprimer', club, method: :delete, data: { confirm: 'Voulez vous vraiment supprimer ce club?' } %></td>
-        <%end%>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-
-
     <div class="preloader">
         <div class="loader"></div>
     </div>
@@ -76,7 +26,7 @@
 
         <div class="uk-container uk-container-center alt">
             <ul class="uk-breadcrumb">
-                <li><a href="/index.html">Home</a></li>
+                <li><a href="/index.html">Accueil</a></li>
                 <li class="uk-active"><span>Listes des clubs</span></li>
             </ul>
         </div>
@@ -110,12 +60,12 @@
                                     <img src="images/team-ava.png" class="img-polaroid" alt="England VS Amsterdam (2015-11-14)" title="England VS Amsterdam (2015-11-14)"></a>                                     
                                 </div>
                                 <div class="team-name">
-                                    Name
+                                    <em>Nom : </em> 
                                     <%= club.name %>                
                                 </div>
                                 <div class="team-name">
-                                    Category
-                                    <%= club.category %>              
+                                     <em>Catégorie :</em>
+                                    <span><%= club.category %></span>               
                                 </div>
                                 <div class="logo">
                                     <a href="match-single.html">

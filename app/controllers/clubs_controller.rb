@@ -36,7 +36,7 @@ class ClubsController < ApplicationController
 
     respond_to do |format|
       if @club.save
-        format.html { redirect_to new_club_picture_path(@club.id), notice: 'Club was successfully created.' }
+        format.html { redirect_to new_club_picture_path(@club.id), notice: 'Le club  a été créé avec succés.' }
         format.json { render :show, status: :created, location: @club }
       else
         format.html { render :new }

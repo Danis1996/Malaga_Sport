@@ -1,0 +1,51 @@
+                        <ul class="nav menu">
+                            <% if current_user %>
+                                <li class="item-3">             
+                                    <a href="/users/<%= current_user.id%>">
+                                    Mon profil <span class="label"></span>
+                                    </a>            
+                                </li>
+                                <li class="item-3">             
+                                    <a href="/users/<%= current_user.id%>">
+                                    Se déconnecter <span class="label"></span>
+                                    </a>            
+                                </li>
+                            <% else %>
+                                <li class="item-3">             
+                                    <a href="<%= new_user_session_path %>">
+                                    Se connecter <span class="label"></span>
+                                    </a>            
+                                </li>
+                                <li class="item-3">             
+                                    <a href="<%= new_user_registration_path %>">
+                                    S'inscrire <span class="label"></span>
+                                    </a>            
+                                </li>
+                            <% end %>
+
+                                <li class="item-4">             
+                                    <a href="<%= publications_path %>">
+                                    Publications <span class="label">(<%= Publication.all.count%>)</span>
+                                    </a>            
+                                </li>
+                                <% if current_user %>
+                                <li class="item-2">
+
+                                <% @publ = Publication.where(user_id: current_user.id)%>             
+                                    <a href="<%= new_publication_path%> ">
+                                    Publier <span class="label">(<%= @publ.count%>)</span>
+                                    </a>            
+                                </li>
+                                <% end %>
+                                <% if current_user %>
+                                    <% if Club.all.count > 0 %>
+                                    <% Club.all.each do |club| %>
+                                        <% if club.admin.id == current_user.id %>
+                                        <li>
+                                            <a href="#" class="lasa" id="<%= club.id %>">Créer un évenement<span class="label">(<%= Event.where(club_id: club.id).count %>)</span></a>
+                                        </li>         
+                                        <% end %>
+                                    <% end %>
+                                    <% end %>
+                                    <% end %>
+                            </ul>

@@ -1,0 +1,72 @@
+<% eve = [] %>
+<% @events.each do |event| %>
+<% eve << event %>
+<%end%>
+
+<% if Event.all.count > 0 %>
+
+<% 3.times do |i| %>
+      
+        
+          
+            <div class="uk-width-large-1-3 uk-width-medium-2-4 uk-width-small-2-4 list-article uk-flex uk-flex-column">
+                <div class="wrapper">
+                    <div class="img-wrap uk-flex-wrap-top">                        
+                        <% if eve[(i+1)*(-1)].club.picture.attached? %>
+                            <a href="news-single.html">
+                            <img src="<%= eve[(i+1)*(-1)].club.picture %>" class="img-polaroid" alt="">
+                            </a> 
+                        <% else %>
+                            <a href="news-single.html">
+                            <img src="/vendor/jangla.gif" class="img-polaroid" alt="">
+                            </a>
+                        <% end %>
+
+                    </div>
+                    <div class="info uk-flex-wrap-middle">
+                        <div class="date">
+                            <%= eve[(i+1)*(-1)].start_date%>           
+                         </div>
+                        <div class="name">
+                            <h4>
+
+                                <%= link_to "#{eve[(i+1)*(-1)].title}", event_path(eve[(i+1)*(-1)].id) %></a>        
+                            </h4>
+                        </div>
+                        <div class="text">
+                            <p><%= eve[(i+1)*(-1)].description %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="article-actions uk-flex-wrap-bottom">
+                    <%user_like = []%>
+                    <% eve[(i+1)*(-1)].likes.each do |like| %>
+                        <% if like.user == current_user%>
+                        <% user_like << like.user.id %>
+                        <%end%>
+                    <%end%>
+                    <% if current_user%>
+
+                        <% if user_like.count > 0 %>
+                            <div class="count"><i><%= eve[(i+1)*(-1)].likes.count %></i><span>J'aime déja </span>
+                            </div>
+                           
+
+                        <%else%>
+                            <div class="count"><i><%= eve[(i+1)*(-1)].likes.count %></i><a href="/events/<%=eve[(i+1)*(-1)].id%>/likes"  data-method = "post"> <span> j'aime </span> </a>
+                            </div>
+                            
+                        <% end %>
+                    <% else %>
+
+                            <div class="count"><i><%= eve[(i+1)*(-1)].likes.count %></i><span>J'aime</span></div>
+                            
+                    <% end %>
+                            <div class="read-more"><a href="/events/<%= eve[(i+1)*(-1)].id %>/commentaire"><%= eve[(i+1)*(-1)].commentaires.all.count %> coms</a></div>
+                        
+                </div>
+            </div>
+            
+<% end %>
+<%end%>
+    

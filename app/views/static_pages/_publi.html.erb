@@ -2,7 +2,7 @@
 	<% @publications.each do |publication| %>
     <% pub << publication %>
     <%end%>
-
+<% if User.all.count > 0%>
  <%3.times do |i|%>
                     <div class="uk-panel news-sidebar">
                     	<article class="has-context ">
@@ -98,5 +98,6 @@
 
                     </div>
                     <% i %>
+<%end%>
 <%end%>
 

@@ -2,7 +2,7 @@
     <% @recrutements.each do |recrutement| %>
         <% rec << recrutement %>
     <%end%>
-
+<% if Recrutement.all.count > 0%>
 <% 3.times do |i| %>
       
         
@@ -44,5 +44,6 @@
                 </div>
             </div>
             
+<% end %>
 <% end %>
     

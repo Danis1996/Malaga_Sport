@@ -2,14 +2,16 @@
 <% @events.each do |event| %>
 <% eve << event %>
 <%end%>
-<% if Event.all.count > 0%>
+
+<% if Event.all.count > 0 %>
+
 <% 3.times do |i| %>
       
         
           
             <div class="uk-width-large-1-3 uk-width-medium-2-4 uk-width-small-2-4 list-article uk-flex uk-flex-column">
                 <div class="wrapper">
-                    <div class="img-wrap uk-flex-wrap-top">
+                    <div class="img-wrap uk-flex-wrap-top">                        
                         <% if eve[(i+1)*(-1)].club.picture.attached? %>
                             <a href="news-single.html">
                             <img src="<%= eve[(i+1)*(-1)].club.picture %>" class="img-polaroid" alt="">
@@ -66,4 +68,5 @@
             </div>
             <% end %>
 <% end %>
+<%end%>
     

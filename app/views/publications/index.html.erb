@@ -9,7 +9,7 @@
   <a href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1"><%= publication.user.first_name%></h5>
-      <small class="text-muted"><%= publication.created_at%></small>
+      <small class="text-muted"><%= publication.created_at.strftime("%d-%m-%Y")%></small>
     </div>
     <p class="mb-1"><%= publication.content%></p>
     

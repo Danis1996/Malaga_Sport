@@ -26,28 +26,28 @@
   <% end %>
      
         
-          <%= f.password_field :password, autocomplete: "new-password", class: "w",  placeholder: "Password, Passer si vous ne voulez pas changer votre mot de passe " %><br><br><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "w",  placeholder: "Nouveau mot de passe, Passer si vous ne voulez pas changer votre mot de passe " %><br><br><br />
    
    
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w", placeholder: "Password confirmation " %><br><br><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w", placeholder: "Confirmer votre mot de passe " %><br><br><br />
        
 
-           <%= f.text_field :first_name, class: "w", placeholder: "First name"  %><br><br> <br>
+           <%= f.text_field :first_name, class: "w", placeholder: "Prénom"  %><br><br> <br>
 
-           <%= f.text_field :last_name, class: "w", placeholder: "Last name"  %><br><br> <br>
+           <%= f.text_field :last_name, class: "w", placeholder: "Nom"  %><br><br> <br>
 
-           <%= f.number_field :age, class: "w", placeholder: "Age"  %><br><br> <br>
+           <%= f.number_field :age, class: "w", placeholder: "Âge"  %><br><br> <br>
 
             <%= f.text_field :description, class: "w", placeholder: "Description"  %><br><br> <br>
 
             <%= f.select(:gender, ['Masculin', 'Féminin']) %><br><br> <br>
    
-           <%= f.text_field :pseudonym, class: "w", placeholder: "Pseudo"  %><br><br> <br>
+           <%= f.text_field :pseudonym, class: "w", placeholder: "Surnom"  %><br><br> <br>
  
  
           <%= f.select :quarter_id, Quarter.all.map{ |c| [c.name, c.id] }, {include_blank: "Quartier"} , {class: "w"}%><br><br>
 
-           <%= f.password_field :current_password, autocomplete: "current-password", class: "w" , placeholder: "Confiramtion mot de passe"%><br><br>
+           <%= f.password_field :current_password, autocomplete: "current-password", class: "w" , placeholder: "Valider votre changement avec votre mot de passe"%><br><br>
 
 
 <style type="text/css">
@@ -65,7 +65,7 @@
                                         <br>
                                         <br>
                                        
-                                          <%= f.submit "Mettre a jour", :class=>"donate-btn" %>
+                                          <%= f.submit "Mettre à jour", :class=>"donate-btn" %>
                                           <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr?" }, method: :delete , class:"donate-btn" %>
 
                                     

@@ -1,4 +1,4 @@
-                        
+<!-- Formulaire pour les publications                         -->
 
 
                         <h3 class="uk-panel-title">Publier</h3>
@@ -9,7 +9,7 @@
                               <%= form_tag "/publications", method: "post" do %>
                               <%= label_tag :content %>
                               <%= text_area_tag :content %>
-                            <%= submit_tag "Publier", class: "btn btn-lg btn-primary btn-block" %>
+                            <%= submit_tag "Publier" %>
                               <% end %>
                         </article>
                         

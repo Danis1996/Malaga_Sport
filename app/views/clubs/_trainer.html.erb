@@ -9,7 +9,7 @@
                                 <div class="va-about-text">
                                     <div class="title">A propos : <span><%= @club.name%></span>
                                     </div>
-                                    <i><em><%= @club.created_at%></em></i>
+                                    <i><em><%= @club.created_at.strftime("%d-%m-%Y" )%></em></i>
                                     <h3 style="color:  white;">Catégorie :</h3>
                                     <p style="color:  white;"><%= @club.category%></p>
                                     <h3 style="color:  white;">Les membres du club :</h3>

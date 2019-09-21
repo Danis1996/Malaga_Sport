@@ -9,15 +9,15 @@
         <h1 class="h3 mb-3 font-weight-normal text-center">Créer un club</h1>
         <div class="form-group">
           <%= label_tag :Nom %>
-          <%= text_area_tag :name, @club.name, class: "form-control" %>
+          <%= text_area_tag :name, @club.name %>
         </div>
         <div class="form-group">
           <%= label_tag :Catégorie %>
-          <%= text_field_tag :category, @club.category, class: "form-control" %>
+          <%= text_field_tag :category, @club.category %>
         </div>
         <div class="form-group">
           <label>Quartier</label>
-          <%=select_tag 'quarter_id', options_for_select(@quarters.collect{ |t| [t.name, t.id] }), class:'form-control'%>
+          <%=select_tag 'quarter_id', options_for_select(@quarters.collect{ |t| [t.name, t.id] })%>
         </div>
         <div class="field">
           <input type="hidden" name="club_id" value="<%= @club.id%>">

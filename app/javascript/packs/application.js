@@ -15,6 +15,33 @@ Rails.start()
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 $(document).on('turbolinks:load',function(){
+
+         $('.likio').off('click').on('click',function(){
+             var id = $(this).data('id');
+             var Thise = $(this)
+             Rails.ajax({
+                    url: "/events/"+id+"/likes",
+                    type: "post",
+                    success: function(data) {
+                         console.log(data.like)
+                         Thise.parent('div').children('i').html(data.like)
+                         if(data.create == '1')
+                         {
+                              Thise.parent('div').children('span').html("j'aime déjà")
+                         }else 
+                         {
+                              console.log('hihi')
+                              Thise.parent('div').children('span').html("j'aime")
+
+                         }
+                       
+                    },
+                    error: function(data) {}
+                    })
+             return false;
+         })
+ 
+
      $('.envoi').off("click").on("click",function(){
                var id = $(this).attr('id');
                Rails.ajax({

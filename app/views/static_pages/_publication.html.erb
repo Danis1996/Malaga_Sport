@@ -3,13 +3,12 @@
 
                         <h3 class="uk-panel-title">Publier</h3>
                         <div class="has-context latest-news-wrap"> 
-                            <p>Ajouter votre publication</p>
+                            <p style="color: white;">Ajouter votre publication : </p>
                         </div>
                         <article class="has-context ">
                               <%= form_tag "/publications", method: "post" do %>
-                              <%= label_tag :content %>
                               <%= text_area_tag :content %>
-                            <%= submit_tag "Publier", class: "btn btn-lg btn-primary btn-block" %>
+                            <%= submit_tag "Publier", class: "btn btn-lg btn-primary" %>
                               <% end %>
                         </article>
                         

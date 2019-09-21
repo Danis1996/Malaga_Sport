@@ -18,7 +18,7 @@
 ### @Fenohery https://github.com/Fenoh3ry (FRONT-END) 💻
 
 # LINK HEROKU
-https://malagasport.herokuapp.com/
+https://gasy-sport.herokuapp.com/
 
 # LINK TRELLO
 https://trello.com/b/MJNXCoqd/malagasport

@@ -9,11 +9,11 @@ puts "#"*50
   if already_liked?
     @event.likes.find_by(user_id: current_user.id).destroy()
     @like = @event.likes.count()
-    
+    @create = "J'aime"
   else
     @event.likes.create(user_id: current_user.id)
     @like = @event.likes.count()
-    @create = 1
+    @create = "J'aime déjà"
 
   end
 

@@ -25,15 +25,10 @@ $(document).on('turbolinks:load',function(){
                     success: function(data) {
                          console.log(data.like)
                          Thise.parent('div').children('i').html(data.like)
-                         if(data.create == '1')
-                         {
-                              Thise.parent('div').children('span').html("j'aime déjà")
-                         }else 
-                         {
-                              console.log('hihi')
-                              Thise.parent('div').children('span').html("j'aime")
+                        
+ 
+                              Thise.parent('div').children('span').html(data.create)
 
-                         }
                        
                     },
                     error: function(data) {}

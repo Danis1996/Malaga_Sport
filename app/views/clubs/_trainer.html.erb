@@ -7,7 +7,7 @@
                         <div class="uk-panel">
                             <div class="va-about-wrap clearfix uk-cover-background uk-position-relative">
                                 <div class="va-about-text">
-                                    <div class="title">A propos : <span><%= @club.name%></span>
+                                    <div class="title">A propos de : <span><%= @club.name%></span>
                                     </div>
                                     <i><em><%= @club.created_at.strftime("%d-%m-%Y" )%></em></i>
                                     <h3 style="color:  white;">Catégorie :</h3>
@@ -16,7 +16,7 @@
                                     <%@club.members.each do |member|%>
                                     <p style="color:  white;"><%= member.pseudonym%></p>
                                     <%end%>
-                                    <h3 style="color:  white;">Événement créé :</h3>
+                                    <h3 style="color:  white;">Événement créé par :</h3>
                                     <% @club.events.each do |event|%>
                                     <p style="color:  white;"><%=event.title%></p>
                                     <%end%>

@@ -7,8 +7,7 @@ class CommentpubController < ApplicationController
    def index
 
     @commentpub = Commentpub.new
-      @publication = Publication.find(params[:publication_id])
-
+    @publication = Publication.find(params[:publication_id])
     @publication_commentpubs_count = @publication.commentpubs.all.count
     @publication_commentpubs = @publication.commentpubs.all
 

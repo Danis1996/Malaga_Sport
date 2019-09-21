@@ -1,0 +1,13 @@
+<% coms = [] %>
+	<% @publication.commentpubs.each do |comment| %>
+    <% coms << comment %>
+    <%end%>
+
+ <%@com1 = coms[-1]%>
+ <%@com1 = coms[-2]%>
+ <%@com1 = coms[-3]%>
+
+<% if coms.count == 0 %>
+<h3>Cette publication n'a pas encore des commentaire</h3>
+<% else %>
+ <%3.times do |i|%>

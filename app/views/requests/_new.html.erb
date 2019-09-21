@@ -37,3 +37,86 @@
   </div>
 <% end %>
 <% end %>
+
+
+
+
+
+
+
+
+
+<br><br><br><br> 
+
+ <div id="comments-wrap">
+                                <div id="jc">
+                                   
+                                            
+                                       
+                                    <h3 class="title-bottom">Postuler un <span>demande</span></h3>
+                                    <a id="addcomments" href="#addcomments"></a>
+                                   
+                                        <%= form_tag url_for(action: 'create'), id:"comments-form", method: "request" do %>
+                                        <div class="uk-grid">
+                                            <div class="uk-width-1-2 uk-panel">
+                                                <p>
+                                                    <span>
+                                                   <br>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <span>
+                                                    <br>
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                   
+                                                    <br>
+                                                </p>
+                                            </div>
+                                            <div class="uk-width-1-2 uk-panel uk-flex uk-flex-column">
+                                                <div class="textarea-wrap">
+                                                    <textarea id="comments-form-comment" placeholder="Message" name="comment" tabindex="5"></textarea>
+                                                    <div class="grippie"></div>
+                                                    <div id="comments-form-buttons">
+                                                        <div class="btn" id="comments-form-send">
+                                                            <div><a tabindex="7" >Send</a></div>
+                                                        </div>
+                                                        <div class="btn" id="comments-form-cancel" style="display:none;">
+                                                            <div><a href="#" tabindex="8" onclick="return false;" title="Cancel">Cancel</a></div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <input name="object_id" value="30" type="hidden">
+                                            <input name="object_group" value="com_cobalt" type="hidden">
+                                        </div>
+                                    <%end%>
+                                    <script type="text/javascript">
+                                        <!--
+                                            function JCommentsInitializeForm()
+                                            {
+                                                var jcEditor = new JCommentsEditor('comments-form-comment', true);
+                                                jcomments.setForm(new JCommentsForm('comments-form', jcEditor));
+                                            }
+                                            
+                                            if (window.addEventListener) {window.addEventListener('load',JCommentsInitializeForm,false);}
+                                            else if (document.addEventListener){document.addEventListener('load',JCommentsInitializeForm,false);}
+                                            else if (window.attachEvent){window.attachEvent('onload',JCommentsInitializeForm);}
+                                            else {if (typeof window.onload=='function'){var oldload=window.onload;window.onload=function(){oldload();JCommentsInitializeForm();}} else window.onload=JCommentsInitializeForm;} 
+                                            //-->
+                                    </script>
+                                    <script type="text/javascript">
+                                        <!--
+                                            jcomments.setAntiCache(1,0,0);
+                                            //-->
+                                    </script> 
+                                </div>
+                            </div>
+
+            
+                        </div>

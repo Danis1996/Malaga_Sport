@@ -1,3 +1,4 @@
+
 <body class="tm-isblog">
 
     <div class="preloader">
@@ -28,7 +29,7 @@
 
         <div class="uk-container uk-container-center alt">
             <ul class="uk-breadcrumb">
-                <li><a href="/">Home</a>
+                <li><a href="/">Accueil</a>
                 </li>
                 <li class="uk-active"><span>Mon profil</span>
                 </li>
@@ -70,26 +71,38 @@
                                
 
                                     <div class="uk-width-large-5-10 uk-width-small-1-1">
-                                        <div class="top-banner uk-cover-background uk-position-relative" style="height: 420px; background-image: url('images/about-team-banner.jpg');">
+                                        <div class="top-banner uk-cover-background uk-position-relative" style="height: 420px; object-fit: cover; background-image: url('images/about-team-banner.jpg');">
                                             <%if @user.avatar.attached?%>
-                                            <%= image_tag @user.avatar, alt: 'avatar', :class=>"pdp" %>
+                                            <%= image_tag @user.avatar, alt: 'avatar', :class=>"img-responsive" %>
     
                                             <%else%>
      
                                              <%end%>
                                             <img class="uk-invisible" src="/vendor/images/about-team-banner.jpg" alt="">
                                             <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle inner">
-                                                <%if @user === current_user %>
-                                                <%if @user.avatar.attached?%>
-                                                <strong><%=link_to'Modifier ma photo de profil', edit_user_avatar_path(@user.id)%></strong><br>
-                                                 <%else%>
-                                                <strong><%=link_to'Ajouter une photo de profil', new_user_avatar_path(@user.id), :style=>'color: black'%> </strong><br>
-                                                 <%end%>
-                                              <%end%>
+                                                
                                                 <div class="name"><%= @user.pseudonym%></div>
                                             </div>
                                         </div>
+                                            <%if @user === current_user %>
+                                            <%if @user.avatar.attached?%>
+                                            <strong>Changer d'avatar ?</strong>
+                                            <%= form_tag user_avatars_path(@user.id), multipart: true do %>
+                                              <%= file_field_tag :avatar %>
+                                              <%= submit_tag "Mettre à jour" %>
+                                            <% end %>
+                                            <%else%>
+                                            <strong>Changer d'avatar ?</strong>
+                                            <%= form_tag user_avatars_path(@user.id), multipart: true do %>
+                                              <%= file_field_tag :avatar %>
+                                              <%= submit_tag "Mettre à jour" %>
+                                            <% end %>
+                                            <% end %>
+                                            <% end %>    
                                     </div>
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -100,5 +113,4 @@
 
     </div>
 </body>       
-    
-
+<!-- Fin profil -->

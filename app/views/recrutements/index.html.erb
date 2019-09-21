@@ -12,11 +12,11 @@
                                             <h3>Les <span>  recrutements</span></h3>
                                         </div>
                                         <div class="our-news-text">Liste des 
-                                            <br> Recrutement. </div>
+                                            <br> Recrutements. </div>
                                     </div>
             <% @recrutements.each do |recrutement| %>
                                     <article class="uk-width-large-1-2 uk-width-medium-1-1 uk-width-small-1-1 our-news-article" data-uk-grid-match="">
-                                        <div class="img-wrap uk-cover-background uk-position-relative" style="background-image: url(images/853d071dfa2f869fbd2a70dbcb3a8f5e.jpg); min-height: 280px;">
+                                        <div class="img-wrap uk-cover-background uk-position-relative" style="background-image: url(/vendor/recru.jpg); min-height: 280px;">
 
 
                                             <a href="news-single.html"></a>
@@ -25,7 +25,7 @@
                                         </div>
                                         <div style="min-height: 280px;" class="info">
                                             <div class="date">
-                                                 <%= recrutement.deadline %>   </div>
+                                                 <%= recrutement.deadline.strftime("%d-%m-%Y" ) %>   </div>
                                             <div class="name">
                                               
                                             </div>
@@ -40,8 +40,7 @@
                                 <%end%> 
                                 </div>
                             </div>
-                            <div class="all-news-btn"><a href="news.html"><span>All News</span></a>
-                            </div>
+                            
 
                         </div>
                     </div>

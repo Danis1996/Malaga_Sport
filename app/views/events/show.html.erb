@@ -15,7 +15,7 @@
         </div>
         <div class="uk-container uk-container-center alt">
             <ul class="uk-breadcrumb">
-                <li><a href="/">Home</a></li>
+                <li><a href="/">Accueil</a></li>
                 
             </ul>
         </div>
@@ -26,7 +26,7 @@
                         <div class="match-list-wrap">
                         <div class="match-list-item">
                           <strong>Date :</strong>
-                          <%= @event.start_date %>
+                          <%= @event.start_date.strftime("%d-%m-%Y" ) %>
                         <div class="va-view-wrap">
                         <a class="view-article" href="match-single.html">all events</a>
                         </div>

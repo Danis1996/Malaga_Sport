@@ -16,8 +16,8 @@
                             <div class="uk-cover-background uk-position-relative head-match-wrap" style="height: 590px; background-image: url('/vendor/images/ok.jpg');">
                                 <img class="uk-invisible" src="/images/head-bg-match.jpg" alt="">
                                 <div class="uk-position-cover uk-flex-center head-news-title">
-                                    <h1>
-                                        Events
+                                    <h1 style="color: #1E90FF;">
+                                        Événements
                                     </h1>
                                 </div>
                             </div>
@@ -40,12 +40,11 @@
                         <div class="match-list-wrap">
                             <div class="match-list-item">
                                 <div class="date">
-                                   <%= event.start_date.strftime("%d-%m-%Y") %>     
+
+                                   <%= event.start_date.strftime("%d-%m-%Y" ) %>     
+
                                 </div>
-                                <div class="logo">
-                                    <a href="match-single.html">
-                                    <img src="images/team-ava.png" class="img-polaroid" alt="England VS Amsterdam (2015-11-14)" title="England VS Amsterdam (2015-11-14)"></a>                                     
-                                </div>
+                                
                                 
                                 <div class="team-name data-uk-grid-margin">
                                     Durée :
@@ -59,10 +58,7 @@
                                     Prix :
                                     <%= event.price %>             
                                 </div>
-                                <div class="logo">
-                                    <a href="match-single.html">
-                                    <img src="images/team-ava1.png" class="img-polaroid" alt="England VS Amsterdam (2015-11-14)" title="England VS Amsterdam (2015-11-14)"></a>                                    
-                                </div>
+                                
                                 <div class="location">
                                     <address>
                                         Location :

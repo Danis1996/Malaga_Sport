@@ -5,7 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'rails', '~> 6.0.0'
 gem 'trestle'
 gem 'trestle-auth'
-
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server

@@ -1,0 +1,49 @@
+<br><br><br><br>
+
+<div class="tm-top-f-box tm-full-width  va-main-our-news">
+            <div class="uk-container uk-container-center">
+                <section id="tm-top-f" class="tm-top-f uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
+                    <div class="uk-width-1-1">
+                        <div class="uk-panel">
+                            <div class="uk-container uk-container-center">
+                                <div class="uk-grid uk-grid-collapse" data-uk-grid-match="">
+                                    <div class="uk-width-1-1">
+                                        <div class="our-news-title">
+                                            <h3>Les <span>  recrutements</span></h3>
+                                        </div>
+                                        <div class="our-news-text">Liste des 
+                                            <br> Recrutements. </div>
+                                    </div>
+            <% @recrutements.each do |recrutement| %>
+                                    <article class="uk-width-large-1-2 uk-width-medium-1-1 uk-width-small-1-1 our-news-article" data-uk-grid-match="">
+                                        <div class="img-wrap uk-cover-background uk-position-relative" style="background-image: url(/vendor/recru.jpg); min-height: 280px;">
+
+
+                                            <a href="news-single.html"></a>
+                                            <img class="uk-invisible" src="<%= recrutement.club.picture%>" alt="">
+
+                                        </div>
+                                        <div style="min-height: 280px;" class="info">
+                                            <div class="date">
+                                                 <%= recrutement.deadline.strftime("%d-%m-%Y" ) %>   </div>
+                                            <div class="name">
+                                              
+                                            </div>
+                                            <div class="text">
+                                                <p> <%= recrutement.content %>           .</p>
+                                                <div class="read-more"> <%= link_to 'Afficher', recrutement , :class=>"read-more"%>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </article>
+                                <%end%> 
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>

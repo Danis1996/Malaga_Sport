@@ -1,0 +1,90 @@
+<div class="tm-top-a-box tm-full-width tm-box-bg-1 ">
+        <div class="uk-container uk-container-center">
+    <section id="tm-top-a" class="tm-top-a uk-grid uk-grid-collapse" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
+        <div class="uk-width-1-1 uk-row-first">
+        <div class="uk-panel">
+        <div class="uk-cover-background uk-position-relative head-match-wrap" style="height: 590px; background-image: url('/vendor/clu.jpg');">
+        <img class="uk-invisible" src="/images/head-bg-match.jpg" alt="">
+        <div class="uk-position-cover uk-flex-center head-news-title">
+        </div>
+        </div>
+        </div>
+        </div>
+    </section>
+        </div>
+        </div>
+        <div class="uk-container uk-container-center alt">
+            <ul class="uk-breadcrumb">
+                <li><a href="/">Accueil</a></li>
+                
+            </ul>
+        </div>
+
+<!-- Détail de l'événement -->
+<div class="uk-width-1-1 uk-row-first">
+                        <div class="uk-panel">
+                            <div class="our-history-wrap">
+                                <div class="our-history-title">
+                                    <h2>Nom de l'événement :<span><%= @event.title%></span></h2>
+                                </div>
+                                
+                                <div class="uk-container uk-container-center">
+                                    <div class="uk-grid">
+                                        <!-- This is the container of the content items -->
+                                        <ul id="our-history" class="uk-switcher uk-container uk-container-center">
+                                            <li aria-hidden="false" class="uk-grid uk-active">
+                                                <div class="uk-width-medium-4-10">
+                                                    <h3 class="history-title">Desc <span>ription</span></h3>
+                                                   
+
+                                                    <!-- This is the container of the content items -->
+                                                    <ul id="tab-switch" class="uk-switcher tabs-switch-bottom">
+                                                        <li class="uk-active" aria-hidden="false">
+                                                            <p>
+                                                                <%= @event.description%>
+                                                            </p>
+                                                            <ul>
+                                                                <li>Date :<%= @event.start_date.strftime("%d-%m-%Y")%></li>
+                                                                
+                                                            </ul>
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                                <div class="uk-width-medium-4-10">
+                                                    <h3 class="history-title">Praesent <span>dictum</span></h3>
+                                                    <div class="uk-accordion" data-uk-accordion="">
+
+                                                        <h4 class="uk-accordion-title uk-active">Location  : <span class="arrow"><i class="uk-icon-arrow-right"></i></span></h4>
+                                                        <div aria-expanded="true" data-wrapper="true" role="list" style="height: auto; position: relative;">
+                                                            <div class="uk-accordion-content uk-active"><%= @event.location%></div>
+                                                        </div>
+
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="uk-width-medium-2-10">
+                                                    <h3 class="history-title">Statistic</h3>
+                                                    <table class="stat-table">
+                                                        <tbody>
+                                                           
+                                                            <tr>
+                                                                <td>Duration :</td>
+                                                                <td><%= @event.duration%></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Prix :</td>
+                                                                <td><%= @event.price%></td>
+                                                            </tr>
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>

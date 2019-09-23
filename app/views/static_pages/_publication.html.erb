@@ -1,0 +1,17 @@
+<!-- Formulaire pour les publications                         -->
+
+
+                        <h3 class="uk-panel-title">Publier</h3>
+                        <div class="has-context latest-news-wrap"> 
+                            <p style="color: white;">Ajouter votre publication : </p>
+                        </div>
+                        <article class="has-context ">
+                              <%= form_tag "/publications", method: "post" do %>
+                              <%= text_area_tag :content %>
+                            <%= submit_tag "Publier", class: "btn btn-lg btn-primary" %>
+                              <% end %>
+                        </article>
+                        
+
+
+                        

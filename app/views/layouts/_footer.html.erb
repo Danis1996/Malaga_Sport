@@ -1,0 +1,102 @@
+<!-- footer about club -->
+<div class="bottom-wrapper">
+            <div class="tm-bottom-f-box  ">
+                <div class="uk-container uk-container-center">
+                    <section id="tm-bottom-f" class="tm-bottom-f uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
+
+                        <div class="uk-width-1-1">
+                            <div class="uk-panel">
+                                <div class="footer-logo">
+                                    <a href="/"><img src="/vendor/images/footer-logo-img.png" alt=""><span>Malaga</span>Sport</a>
+                                </div>
+                                
+                                <div class="clear"></div>
+
+                                <p class="footer-about-text">
+                                   Promouvons ensemble le sport à Madagascar.
+Le site qui facilite la mise en relation des joueurs de football et ceux des recruteurs dans tout Madagascar, à tout moment.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+<!-- Slide rencontre -->
+            <div class="tm-bottom-g-box  ">
+                <div class="uk-container uk-container-center">
+                    <section id="tm-bottom-g" class="tm-bottom-f uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
+
+                        <div class="uk-width-1-1 uk-width-large-1-2">
+                            <div class="uk-panel">
+                                <div class="match-list-wrap foot">
+                                    <div id="carusel-7" class="uk-slidenav-position" data-uk-slideshow="{ height : 37, autoplay:true, animation:'scroll' }">
+                                        <div class="last-match-top">
+                                            <div class="last-match-title">Prochaine rencontre</div>
+                                            <div class="footer-slider-btn">
+                                                <a href="/" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous"></a>
+                                                <a href="/" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next"></a>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <ul class="uk-slideshow">
+                                            <%10.times do%>
+                                            <li class="" aria-hidden="true">
+                                                <div class="match-list-item alt foot">
+                                                    <div class="wrapper">
+                                                        
+                                                        <div class="team-name">
+                                                            <%= Club.find(rand(1..Club.last.id)).name%> </div>
+                                                        <div class="versus">VS</div>
+
+                                                        <div class="team-name">
+                                                            <%= Club.find(rand(1..Club.last.id)).name%>  </div>
+                                                        
+                                                        <a class="read-more" href="/clubs">Voir plus</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <%end%>
+                                            
+                                        </ul>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </section>
+                </div>
+            </div>
+
+<!-- Navbar footer -->
+            <footer id="tm-footer" class="tm-footer">
+                <div class="uk-panel">
+                    <div class="uk-container uk-container-center">
+                        <div class="uk-grid">
+                            <div class="uk-width-1-1">
+                                <div class="footer-wrap">
+                                    <div class="foot-menu-wrap">
+                                        <ul class="nav menu">
+                                            <li class="item-165"><a href="/clubs">Club</a>
+                                            </li>
+                                            <li class="item-166"><a href="/recrutements">Recrutements</a>
+                                            </li>
+                                            <li class="item-167"><a href="/events">Évenements</a>
+                                            </li>
+                                            <li class="item-168"><a href="/publications">Publications</a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="copyrights">Copyright © 2019 <a href="/">MalagaSport</a>. Tous droits reservés</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>

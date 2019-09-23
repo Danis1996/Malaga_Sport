@@ -1,0 +1,112 @@
+
+<body class="tm-isblog">
+
+    
+    
+
+        
+        <div class="tm-top-a-box tm-full-width tm-box-bg-1 ">
+            <div class="uk-container uk-container-center">
+                <section id="tm-top-a" class="tm-top-a uk-grid uk-grid-collapse" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
+
+                    <div class="uk-width-1-1 uk-row-first">
+                        <div class="uk-panel">
+                            <div class="uk-cover-background uk-position-relative head-wrap" style="height: 290px; background-image: url('/vendor/images/head-bg.jpg');">
+                                <img class="uk-invisible" src="images/head-bg.jpg" alt="" height="290" width="1920">
+                                <div class="uk-position-cover uk-flex uk-flex-center head-title">
+                                    <h1>Mon profil</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="uk-container uk-container-center alt">
+            <ul class="uk-breadcrumb">
+                <li><a href="/">Accueil</a>
+                </li>
+                <li class="uk-active"><span>Mon profil</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tm-bottom-a-box  ">
+            <div class="uk-container uk-container-center">
+                 <section id="tm-bottom-b" class="tm-bottom-b uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
+
+                    <div class="uk-width-1-1 uk-row-first">
+                        <div class="uk-panel">
+                    
+                            <div class="about-team-page-top-wrap">
+                                <div class="uk-grid">
+                                    <div class="uk-width-large-5-10 uk-width-small-1-1 left-part">
+                                        <div class="top-title">
+
+                                            <h2>Profil de <span><%= @user.pseudonym %> / <%= link_to "Editer", edit_user_registration_path(@current_user) %></span></h2>
+                                        </div>
+                                            <span>
+                                                <ul>
+                                                    <strong><li>Pseudo: <%= @user.pseudonym%> </li></strong>
+                                                    <strong><li>Prénom: <%= @user.first_name%> </li></strong>
+                                                    <strong><li>Nom: <%= @user.last_name%> </li></strong>
+                                                  <% if @user.quarter != nil%>
+                                                    <strong><li>Quartier:<%= link_to "#{@user.quarter.name}", quarter_path(@user.quarter.id)%> </li></strong>
+                                                  <% unless @user.club == nil %>
+                                                    <strong><li>Club: <%= link_to "#{@user.club.name}", club_path(@user.club.id) %> </li></strong>
+                                                   <% end %>
+                                                  <% end %>
+                                                       <strong><li>Email: <%= @user.email%> </li></strong>
+                                                       <strong><li>Age: <%= @user.age%> </li></strong>
+                                                       <strong><li>Genre: <%= @user.gender%> </li></strong>
+                                                       <strong><li>Description: <%= @user.description%> </li></strong>
+                                                </ul>
+                                            </span>
+                                    </div>
+                               
+
+                                    <div class="uk-width-large-5-10 uk-width-small-1-1">
+                                        <div class="top-banner uk-cover-background uk-position-relative" style="height: 420px; object-fit: cover; background-image: url('images/about-team-banner.jpg');">
+                                            <%if @user.avatar.attached?%>
+                                            <%= image_tag @user.avatar, alt: 'avatar', :class=>"img-responsive" %>
+    
+                                            <%else%>
+     
+                                             <%end%>
+                                            <img class="uk-invisible" src="/vendor/images/about-team-banner.jpg" alt="">
+                                            <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle inner">
+                                                
+                                                <div class="name"><%= @user.pseudonym%></div>
+                                            </div>
+                                        </div>
+                                            <%if @user === current_user %>
+                                            <%if @user.avatar.attached?%>
+                                            <strong>Changer d'avatar ?</strong>
+                                            <%= form_tag user_avatars_path(@user.id), multipart: true do %>
+                                              <%= file_field_tag :avatar %>
+                                              <%= submit_tag "Mettre à jour" %>
+                                            <% end %>
+                                            <%else%>
+                                            <strong>Changer d'avatar ?</strong>
+                                            <%= form_tag user_avatars_path(@user.id), multipart: true do %>
+                                              <%= file_field_tag :avatar %>
+                                              <%= submit_tag "Mettre à jour" %>
+                                            <% end %>
+                                            <% end %>
+                                            <% end %>    
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+</body>       
+<!-- Fin profil -->

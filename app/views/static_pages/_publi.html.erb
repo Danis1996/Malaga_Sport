@@ -1,0 +1,103 @@
+<!-- Affiche les 3 dernières publications -->
+<% pub = [] %>
+	<% @publications.each do |publication| %>
+    <% pub << publication %>
+    <%end%>
+<% if User.all.count > 0%>
+ <%3.times do |i|%>
+                    <div class="uk-panel news-sidebar">
+                    	<article class="has-context ">
+                            <div class="latest-news-wrap">
+
+
+                            	<% if pub[(i+1)*(-1)].user.avatar.attached? %>
+
+                                <div class="img-wrap">
+                                    <a href="/users/<%= pub[(i+1)*(-1)].user.id %>">
+                                    	<%= image_tag pub[(i+1)*(-1)].user.avatar, alt: 'avatar', :class=>"img-polaroid" %>
+                                    </a>   
+                                </div>
+
+                                <% else %>
+                                	<div class="img-wrap">
+	                                    <a href="/users/<%= pub[(i+1)*(-1)].user.id %>">
+	                                    	<img src="/vendor/images/<%= rand (1..7)%>.jpg">
+	                                    </a>   
+                                	</div>
+
+                                <% end %>
+
+                                <div>
+                                    <h3 class="uk-panel-title">.   <%= pub[(i+1)*(-1)].user.first_name %></h3> 
+                                </div>
+                                <div class="info">
+                                	<div></div>
+                                	<div>.</div>
+                                    <div class="date">
+                                        <%= pub[(i+1)*(-1)].created_at.strftime("%d-%m-%Y") %>           
+                                    </div>
+
+
+                                    <div class="name">
+                                        <h4>
+                                            <a href="#">
+                                            	<%= pub[(i+1)*(-1)].content %>
+                                            </a>        
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <h3 class="uk-panel-title"><a href="/publications/<%= pub[(i+1)*(-1)].id%>/commentpub" >Commentaire </a><strong class="a">(<%= pub[(i+1)*(-1)].commentpubs.all.count %>)</strong></h3>
+
+                    <%if pub[(i+1)*(-1)].commentpubs.count > 3 %>
+                    <% x = 3%>
+                    <% else %>
+                    <% x = pub[(i+1)*(-1)].commentpubs.count%>
+                    <%end%>
+
+                    <% compub_array = [] %>
+
+                    <%= pub[(i+1)*(-1)].commentpubs.each do |commentpub|%>
+                    	<% compub_array << commentpub %>
+                    <%end%>
+
+                    <%x.times do |comcom|%>
+                        <article class="has-context ">
+                            <div class="latest-news-wrap">
+
+                            	<% if compub_array[(comcom + 1) * (-1)].user.avatar.attached? %>
+
+                                <div class="img-wrap">
+                                	<%= image_tag compub_array[(comcom + 1) * (-1)].user.avatar, alt: 'avatar', :class=>"img-polaroid" %>
+                                </div>
+
+                                <% else %>
+                                	<div class="img-wrap">
+	                                    <a href="/users/<%= compub_array[(comcom + 1) * (-1)].user.id%>">
+	                                    	<img src="/vendor/images/<%= rand (1..7)%>.jpg">
+	                                    </a>   
+                                	</div>
+                                <% end %>
+
+
+                                <div class="info">
+                                		<h4 style="color: white;"><em style="color: white;">commentaire de : </em> <%= compub_array[(comcom + 1) * (-1)].user.first_name%> <%= compub_array[(comcom + 1) * (-1)].user.last_name%></h4>
+                                    <div class="date">
+                                    	<%= compub_array[(comcom + 1) * (-1)].created_at%>           
+                                    </div>
+                                    <div class="name">
+                                        <h4>
+                                            <i style="color: white;"> <%= compub_array[(comcom + 1) * (-1)].content %></i>        
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <% comcom %>
+                    <% end %>
+                  </div>
+              <%end%>
+
+<%end%>
+

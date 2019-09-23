@@ -1,0 +1,49 @@
+<!-- Affiche les 3 derniers recrutements -->
+<% rec = [] %>
+    <% @recrutements.each do |recrutement| %>
+        <% rec << recrutement %>
+    <%end%>
+<% if Recrutement.all.count > 0%>
+<% 3.times do |i| %>
+      
+        
+          
+            <div class="uk-width-large-1-3 uk-width-medium-2-4 uk-width-small-2-4 list-article uk-flex uk-flex-column">
+                <div class="wrapper">
+                    <div class="img-wrap uk-flex-wrap-top">
+                        <% if rec[(i+1)*(-1)].club.picture.attached? %>
+                            <a href="/recrutements/<%= rec[(i+1)*(-1)].id %>">
+                            <img src="<%= rec[(i+1)*(-1)].club.picture %>" class="img-polaroid" alt="">
+                            </a> 
+                        <% else %>
+                            <a href="/recrutements/<%= rec[(i+1)*(-1)].id %>">
+                            <img src="/vendor/jangla.gif" class="img-polaroid" alt="">
+                            </a>
+                        <% end %>
+
+                    </div>
+                    <div class="info uk-flex-wrap-middle">
+                        <div class="date">
+                            <%= rec[(i+1)*(-1)].deadline.strftime("%d-%m-%Y")%>           
+                         </div>
+                        <div class="name">
+                            <h4>
+                                <%= rec[(i+1)*(-1)].club.category %></a>        
+                            </h4>
+                        </div>
+                        <div class="text">
+                            <p><%= rec[(i+1)*(-1)].content %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="article-actions uk-flex-wrap-bottom">
+                    <div class="count">recrutement
+                    </div>
+                    <div class="read-more"><a href="/requests/<%= rec[(i+1)*(-1)].id %>"> Voir </a>
+                    </div>
+                        
+                </div>
+            </div>
+     <% end %>       
+<% end %>
+    

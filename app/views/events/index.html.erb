@@ -1,0 +1,95 @@
+
+<body class="tm-isblog">
+    <p id="notice"><%= notice %></p>
+
+    
+
+    <div class="over-wrap">
+        <div class="tm-top-a-box tm-full-width tm-box-bg-1 ">
+            <div class="uk-container uk-container-center">
+                <section id="tm-top-a" class="tm-top-a uk-grid uk-grid-collapse" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
+                    <div class="uk-width-1-1 uk-row-first">
+                        <div class="uk-panel">
+                            <div class="uk-cover-background uk-position-relative head-match-wrap" style="height: 590px; background-image: url('/vendor/images/ok.jpg');">
+                                <img class="uk-invisible" src="/images/head-bg-match.jpg" alt="">
+                                <div class="uk-position-cover uk-flex-center head-news-title">
+                                    <h1 style="color: #1E90FF;">
+                                        Événements
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="uk-container uk-container-center alt">
+            <ul class="uk-breadcrumb">
+                <li><a href="/">Accueil</a></li>
+                <li class="uk-active"><span>Événements</span></li>
+            </ul>
+        </div>
+
+       
+                    <main id="tm-content" class="tm-content">
+                        <% @events.each do |event| %>
+                        <div class="match-list-wrap">
+                            <div class="match-list-item">
+                                <div class="date">
+
+                                   <%= event.start_date.strftime("%d-%m-%Y" ) %>     
+
+                                </div>
+                                
+                                
+                                <div class="team-name data-uk-grid-margin">
+                                    Durée :
+                                    <%= event.duration %>               
+                                </div>
+                                <div class="team-name">
+                                    Titre : 
+                                    <%= event.title %>             
+                                </div>
+                                <div class="team-name">
+                                    Prix :
+                                    <%= event.price %>             
+                                </div>
+                                
+                                <div class="location">
+                                    <address>
+                                        Location :
+                                        <%= event.location %>
+                                    </address>
+                                </div>
+                                <div class="va-view-wrap">
+                                    <%= link_to 'Afficher', event %>                                   
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </main>
+                      <%end%>  
+                </div>
+            </div>
+        </div>
+
+        <div class="tm-bottom-e-box tm-full-width  ">
+            <div class="uk-container uk-container-center">
+                <section id="tm-bottom-e" class="tm-bottom-e uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
+                    <div class="uk-width-1-1 uk-row-first">
+                        <div class="uk-panel">
+                            <img src="/vendor/images/mlay.jpg" alt="">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+</body>
+

@@ -1,0 +1,250 @@
+
+<!-- Commentaire de tous les publications -->
+        <div class="tm-top-a-box tm-full-width tm-box-bg-1 ">
+            <div class="uk-container uk-container-center">
+                <section id="tm-top-a" class="tm-top-a uk-grid uk-grid-collapse" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin="">
+                    <div class="uk-width-1-1 uk-row-first">
+                        <div class="uk-panel">
+                            <div class="uk-cover-background uk-position-relative head-wrap" style="height: 290px; background-image: url('/vendor/images/head-bg.jpg');">
+                                <img class="uk-invisible" src="/vendor/images/head-bg.jpg" alt="" height="290" width="1920">
+                                <div class="uk-position-cover uk-flex uk-flex-center head-title">
+                                    <h1>
+                                        Page de publications de <%= @publication.user.first_name %>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+        <div class="uk-container uk-container-center alt">
+            <ul class="uk-breadcrumb">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="/publications">Publications</a></li>
+                <li class="uk-active"><span>Page de publications de <%= @publication.user.first_name %></span></li>
+            </ul>
+        </div>
+
+        <div class="uk-container uk-container-center">
+            <div id="tm-middle" class="tm-middle uk-grid" data-uk-grid-match="" data-uk-grid-margin="">
+                <div class="tm-main uk-width-medium-3-4 uk-push-1-4">
+                    <main id="tm-content" class="tm-content">
+                        <div class="contentpaneopen">
+                           <article>
+                                <div class="clearfix"></div>
+                                <div class="article-slider">
+                                    <div id="carusel-11-30" class="uk-slidenav-position" data-uk-slideshow="{ height : 510 }">
+                                        <ul class="uk-slideshow">
+                                            <li>
+                                                <div style="background-image: url(/vendor/publication.jpeg);" class="uk-cover-background uk-position-cover"></div>
+                                                <img style="width: 100%; height: auto; opacity: 0;" src="/vendor/images/slider/1448409600_2412ac1f15197bfe93d67bdd259afc94.jpg" alt="">
+                                            </li>
+                                            <li>
+                                                <div style="background-image: url(/vendor/publication.jpeg);" class="uk-cover-background uk-position-cover"></div>
+                                                <img style="width: 100%; height: auto; opacity: 0;" src="images/slider/1449540000_3c66e89ed9dbc01b314eb1af9ab9e93a.jpg" alt="">
+                                            </li>
+                                        </ul>
+                                        <div class="article-slider-btn">
+                                            <a href="/" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous"></a>
+                                            <a href="/" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="article-param">
+                                    <div class="date">
+                                        <i class="uk-icon-calendar"></i>
+                                        <%= @publication.created_at.strftime("%d-%m-%Y")%>           
+                                    </div>
+                                    <div class="author">
+                                        <i class="uk-icon-user"></i>
+                                        <a class="filter-link" data-original-title="Show only articles of <b>Guest</b>" href="#" rel="nofollow">Commentaire [<%= @publication.commentpubs.count %>]</a>            
+                                    </div>
+                                    <div class="categories">
+                                        <i class="uk-icon-list-ul"></i>
+                                        <a href="#">J'aime [<%= rand (0..100) %> ]</a>            
+                                    </div>
+                                </div>
+                                <div class="article-single-text">
+                                    <p>le <%= @publication.created_at.strftime("%d-%m-%Y")%>, <%= @publication.user.first_name%> <%= @publication.user.last_name%> a dit:</p>
+                                    <blockquote><span><%= @publication.content%></span></blockquote>                                   
+                                </div>
+
+                            </article>
+                            
+
+                            <div id="comments-wrap">
+                                <div id="jc">
+                                    <div id="comments">
+                                        <h3>Commentaires <span><%= @publication.commentpubs.count%></span></h3>
+                                        <div class="comments-list" id="comments-list-0">
+
+                                <% coms = [] %>
+                                <% @publication.commentpubs.each do |comment| %>
+                                <% coms << comment %>
+                                <%end%>
+
+                                <% if @publication.commentpubs.count > 0 %>
+                                <% @coms1 = coms[-1]%>
+                                            <div class="even" id="comment-item-14">
+
+
+
+
+
+
+                                                <div class="rbox">
+                                                    <div class="comment-avatar">
+                                                        <% if @coms1.user.avatar.attached?%>
+
+                                                            <%= image_tag @coms1.user.avatar, alt: 'Ann'%>
+                                                                <%else%>
+                                                        <img src="http://www.gravatar.com/avatar/d18ba4a7237afbb7b1fb23fc70c2081b?d=http%3A%2F%2Fsport.statiolh.bget.ru%2Fcomponents%2Fcom_jcomments%2Fimages%2Fno_avatar.png" alt="Jesica">
+                                                        <% end %>
+                                                    </div>
+                                                    <div class="comment-box avatar-indent">
+                                                        <a class="comment-anchor" href="#comment-14" id="comment-14">#</a>
+                                                        <span class="comment-author"><%= @coms1.user.first_name%></span>
+                                                        <span class="comment-date"><%= @coms1.created_at.strftime("%d-%m-%Y")%></span>
+                                                        <div class="comment-body" id="comment-body-14"><%= @coms1.content%></div>
+                                                        <span class="comments-buttons">
+                                                
+                                                        <a href="#" onclick="jcomments.quoteComment(14); return false;">Commentaire de <%= @coms1.user.first_name %></a>
+                                                        </span>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+
+                                            </div>
+                                                <%end%>
+                                            <div class="comments-list" id="comments-list-14">
+                            <% if @publication.commentpubs.count > 1 %>
+                                <% @coms2 = coms[-2]%>
+                                                <div class="odd" id="comment-item-19">
+                                                    <div class="rbox">
+                                                        <div class="comment-avatar">
+                                                        <% if @coms2.user.avatar.attached?%>
+
+                                                            <%= image_tag @coms2.user.avatar, alt: 'Ann'%>
+                                                                <%else%>
+                                                            <img src="http://www.gravatar.com/avatar/ee93789afa0c550a5c6e41f5e85caed3?d=http%3A%2F%2Fsport.statiolh.bget.ru%2Fcomponents%2Fcom_jcomments%2Fimages%2Fno_avatar.png" alt="Jorge">
+                                                            <% end %>
+                                                        </div>
+                                                        <div class="comment-box avatar-indent">
+                                                            <a class="comment-anchor" href="#comment-19" id="comment-19">#</a>
+                                                            <span class="comment-author"><%= @coms2.user.first_name%></span>
+                                                            <span class="comment-date"><%= @coms2.created_at.strftime("%d-%m-%Y")%></span>
+                                                            <div class="comment-body" id="comment-body-19"><%= @coms2.content%></div>
+                                                            <span class="comments-buttons">
+                                                            
+                                                            <a href="#" onclick="jcomments.showReply(19,1); return false;">commentaire de <%= @coms2.user.first_name%></a> 
+                                                            
+                                                            </span>
+                                                        </div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                </div>
+                                            <% end %>
+                                            <% if @publication.commentpubs.count > 2 %>
+                                                <% @coms3 = coms[-3]%>
+                                                <div class="comments-list" id="comments-list-19">
+                                                    <div class="even" id="comment-item-20">
+                                                        <div class="rbox">
+                                                            <div class="comment-avatar">
+                                                                <% if @coms3.user.avatar.attached?%>
+
+                                                            <%= image_tag @coms3.user.avatar, alt: 'Ann'%>
+                                                                <%else%>
+                                                                <img src="http://www.gravatar.com/avatar/b04dfe4ca691441cd19e145fc5d513b8?d=http%3A%2F%2Fsport.statiolh.bget.ru%2Fcomponents%2Fcom_jcomments%2Fimages%2Fno_avatar.png" alt="Ann">
+                                                                <%end%>
+                                                            </div>
+                                                            <div class="comment-box avatar-indent">
+                                                                <a class="comment-anchor" href="#comment-20" id="comment-20">#</a>
+                                                                <span class="comment-author"><%= @coms3.user.first_name%></span>
+                                                                <span class="comment-date"><%= @coms3.created_at.strftime("%d-%m-%Y")%></span>
+                                                                <div class="comment-body" id="comment-body-20">T<%= @coms3.content%></div>
+                                                                <span class="comments-buttons">
+                                                                
+                                                                <a href="#" onclick="jcomments.showReply(20,1); return false;">commentaire de <%= @coms3.user.first_name%></a> 
+                                                                
+                                                                </span>
+                                                            </div>
+                                                            <div class="clear"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% end %>
+
+                                            </div>
+                                        </div>
+                                        <div id="comments-list-footer"><a class="refresh" href="#" title="Refresh comments list" onclick="jcomments.showPage(30,'com_cobalt',0);return false;">Refresh comments list</a></div>
+                                    </div>
+                                    <h3 class="title-bottom">Ecriver <span>Votre commentaire</span></h3>
+                                    <div>
+                                        <%= form_tag url_for(action: 'create'), method: "commentpub" do %>
+                                            <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+
+                                        <%= text_area_tag 'content', @commentpub.content, :class=>"w"%><br>
+        
+                                        <%= submit_tag "Commenter", :class=>"cc" %>
+                                        <% end %>
+
+                                        <style type="text/css">
+                                                .w{
+                                                    width: 400px; height: 100px;
+                                                }
+                                                .cc{
+                                                     width: 120px; height: 50px;
+                                                     margin-right: 200px;
+                                                }
+                                        </style>
+                                    </div>
+                                </div>
+                            </div>
+
+            
+                        </div>
+   
+                    </main>
+                </div>
+                <aside class="tm-sidebar-a uk-width-medium-1-4 uk-pull-3-4 uk-row-first">
+                    <div class="uk-panel ">
+                        <img src="/logo/logo.png">
+                    </div>
+                    <div class="uk-panel categories-sidebar">
+                        <h3 class="uk-panel-title">Categories</h3>
+                        <div>
+                            <%= render partial: "static_pages/todo" %>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+
+                    <div class="uk-panel news-sidebar">
+                            <%= render partial: "static_pages/publication" %>
+                    </div>
+                            
+                    <% if current_user %>
+                      <div class="uk-panel tags-sidebar">
+                          <h3 class="uk-panel-title">Avatar</h3>
+                          <div class="contentpaneopen">
+                            <% if current_user.avatar.attached?%>
+                              <%= image_tag current_user.avatar, alt: 'avatar', :class=>"img-polaroid" %>
+                            <% else %>
+                              <a href="/users/<%= current_user.id %>">
+                              <img src="/vendor/tete.gif" class="img-polaroid" alt="">
+                              </a>
+                          <% end %>
+                          </div>
+                          <div style="clear: both;">
+                            
+                          </div>
+                      </div>
+                    <% end %>
+                    <div class="uk-panel news-sidebar">
+                            <%= render partial: "static_pages/recent_club" %>
+                    </div>
+                </aside>
+            </div>
+        </div>

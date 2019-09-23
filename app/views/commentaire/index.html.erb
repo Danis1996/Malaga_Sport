@@ -1,0 +1,49 @@
+<style type="text/css">
+  body {
+    background-image: url(/vendor/boy.jpg);
+  }
+</style>
+
+       <div class="cardbox que" style="background-color: transparent;">
+<%= form_tag url_for(action: 'create'), method: "comment" do %>
+<input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+            <div class="photo-card" style="background-color: transparent;">
+                <div class="photo-background" style="margin-left: 40px;">
+                  <br><br>
+                  <p><em>Évenement du club : </em><strong><%= @event.club.name %></strong></p>
+
+                  <i>Titre de l'événement :</i>
+                  <h3> <%= @event.title %></h3>
+
+                  <i >Description de l'événement : </i>
+                  <h4><%= @event.description %></h4><br><br>
+                </div>
+
+               
+                <div class="photo-details" style="background-color: transparent;">
+                <i>Nombre de commentaire : (<%= @event_comments_count %>)   </i><br>
+                <% @event.commentaires.each_with_index do |coms, index| %>
+
+                <i><%= index + 1%>/</i><strong style="color: blue;"><%= User.find(coms.user_id).first_name %></strong><br>
+                <%= coms.content%><br>
+                  <a style="color: black;" href="/users/<%= coms.user.id %>/">Voir l'auteur</a>
+                  <% if current_user%>
+
+                <%= form_tag url_for(action: 'create'), method: "commentaire" do %>
+                <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+             <div class="form-group">
+               
+              <%= label_tag 'Contenu' %><br />
+              <%= text_area_tag 'content'%>
+             </div>
+              <br /> <br />
+
+              <%= submit_tag "Créer un commentaire" , class: "btn btn-lg btn-primary btn-block" %>
+
+            <% end %>
+            <% end %>
+            <% end %>        
+                </div>
+            </div>
+<% end %>
+  </div>

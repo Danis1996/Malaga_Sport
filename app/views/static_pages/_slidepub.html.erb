@@ -1,0 +1,30 @@
+
+
+                                <div class="latest_products jshop sld">
+
+                                    <div data-uk-slider="{center:true, autoplay:true, pauseOnHover:true, autoplayInterval:5000}" dir="ltr">
+
+                                        <div class="uk-slider-container">
+                                            <ul class="uk-slider uk-grid-width-large-1-6 uk-grid-width-medium-1-4 uk-grid-width-small-1-1  uk-grid uk-grid-medium" style="min-width: 3844px; min-height: 12.2px; transform: translateX(-2786.73px);">
+                                                <% 20.times do%>
+                                                <li class="block_item uk-slide-after" style="left: 3844px; width: 192.2px;">
+                                                    <img class="pub" src="vendor/pub<%= rand(1..12)%>.jpeg">
+                                                </li> 
+                                                <% end %>                                              
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+<style type="text/css">
+    .pub{
+        height: 250px;
+        width: 200px;
+    }
+    .sld{
+        margin-left: -200px;
+        margin-right: -200px;
+    }
+</style>

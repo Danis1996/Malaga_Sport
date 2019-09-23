@@ -68,10 +68,10 @@ klioba = ["FC ZANDRIKELY","FC HEZAKA","ZAZANAVELA","FC RASTA","FANALA FC","FC TS
             "KARY fc","MANJAKAMIADANA","FC BEMIRAY","KANDRA Sport","EZAMI","FC RAMIARAMILA","ENJANA fc","FIRAISANKINA","ZAZA MADITRA FC","",
             "Tanora Club","Cnaps Sport","Ajesaia","AS ADEMA","COSFAP","JGJY","JIOJIO","BGFBF","BGF","SDCDS"]
 
-antony = ["Notre club de foot recrute pour le moment un ou plusieurs joueur talentueux. Vous, oui vous, vous pouvez postuler et passer le teste pour conquérir cette post",
-            "C'est le recrutement chez nous! vous voulez devenir le futur star dy foot? c'est le moment ou jamais de tenter votre chanche en intégrant notre équipe! postuler des maintenant",
+antony = ["Notre club de foot recrute pour le moment un ou plusieurs joueurs talentueux. Vous, oui vous, vous pouvez postuler et passer le teste pour conquérir cette poste",
+            "C'est le recrutement chez nous! vous voulez devenir un futur star du foot? c'est le moment ou jamais de tenter votre chance en intégrant notre équipe! postuler des maintenant",
             "Alert verte! c'est reparti, la nouvelle vague de recrutement débute chez nous, allez allez allez, postulééééééééééééééééé!",
-            "Holla holla, c'est pour toi! tu sais très bien que c'est en forgeant qu'on devient forgeron, alors sans plus attendre, intégré notre équipe maintenant"]
+            "Holla holla, c'est pour toi! tu sais très bien que c'est en forgeant qu'on devient forgeron, alors sans plus attendre, intégre notre équipe maintenant"]
  
  sokajy = ["U16","U14","U18","Minim","Sénior","vétérant","junior"]
 
@@ -162,7 +162,7 @@ puts "10 seed for Request created succesfully with attribut user_id "
                     title: anarambositra[rand(0..29)], 
                     description: ohabolana[rand(0..29)], 
                     price: rand(10..50), 
-                    location: ohabolana[rand(0..29)], 
+                    location: tanana[rand(0..29)], 
                     club_id: rand(1..30)
                     )
     end

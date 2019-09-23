@@ -69,10 +69,10 @@
                                     <div class="uk-width-large-5-10 uk-width-small-1-1">
                                         <div class="top-banner uk-cover-background uk-position-relative" style="height: 420px; object-fit: cover; background-image: url('images/about-team-banner.jpg');">
                                             <%if @user.avatar.attached?%>
-                                            <%= image_tag @user.avatar, alt: 'avatar', :class=>"img-responsive" %>
+                                            <%= image_tag @user.avatar, alt: 'avatar', :style=>"height: 360px; width: 487px; margin-top: 30px; margin-left:30px;" %>
     
                                             <%else%>
-     
+                                            
                                              <%end%>
                                             <img class="uk-invisible" src="/vendor/images/about-team-banner.jpg" alt="">
                                             <div class="uk-position-cover uk-flex uk-flex-center uk-flex-middle inner">
@@ -108,5 +108,9 @@
         </div>
 
     </div>
+    <div style="position: relative; left: 15%;">
+  
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d30201.420551343588!2d47.50791505!3d-18.8792021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2smg!4v1569240268186!5m2!1sfr!2smg" width="1000" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+</div>
 </body>       
 <!-- Fin profil -->

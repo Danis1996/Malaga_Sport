@@ -9,7 +9,7 @@
                                 <img class="uk-invisible" src="/vendor/images/head-bg.jpg" alt="" height="290" width="1920">
                                 <div class="uk-position-cover uk-flex uk-flex-center head-title">
                                     <h1>
-                                        Page de publications de <%= @publication.user.first_name %>
+                                        Page de publications de <%= @publication.user.pseudonym %>
                                     </h1>
                                 </div>
                             </div>
@@ -24,7 +24,7 @@
             <ul class="uk-breadcrumb">
                 <li><a href="#">Accueil</a></li>
                 <li><a href="/publications">Publications</a></li>
-                <li class="uk-active"><span>Page de publications de <%= @publication.user.first_name %></span></li>
+                <li class="uk-active"><span>Page de publications de <%= @publication.user.pseudonym %></span></li>
             </ul>
         </div>
 
@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                                 <div class="article-single-text">
-                                    <p>le <%= @publication.created_at.strftime("%d-%m-%Y")%>, <%= @publication.user.first_name%> <%= @publication.user.last_name%> a dit:</p>
+                                    <p>le <%= @publication.created_at.strftime("%d-%m-%Y")%>, <%= @publication.user.pseudonym%> <%= @publication.user.last_name%> a dit:</p>
                                     <blockquote><span><%= @publication.content%></span></blockquote>                                   
                                 </div>
 
@@ -106,12 +106,12 @@
                                                     </div>
                                                     <div class="comment-box avatar-indent">
                                                         <a class="comment-anchor" href="#comment-14" id="comment-14">#</a>
-                                                        <span class="comment-author"><%= @coms1.user.first_name%></span>
+                                                        <span class="comment-author"><%= @coms1.user.pseudonym%></span>
                                                         <span class="comment-date"><%= @coms1.created_at.strftime("%d-%m-%Y")%></span>
                                                         <div class="comment-body" id="comment-body-14"><%= @coms1.content%></div>
                                                         <span class="comments-buttons">
                                                 
-                                                        <a href="#" onclick="jcomments.quoteComment(14); return false;">Commentaire de <%= @coms1.user.first_name %></a>
+                                                        <a href="#" onclick="jcomments.quoteComment(14); return false;">Commentaire de <%= @coms1.user.pseudonym %></a>
                                                         </span>
                                                     </div>
                                                     <div class="clear"></div>
@@ -134,12 +134,12 @@
                                                         </div>
                                                         <div class="comment-box avatar-indent">
                                                             <a class="comment-anchor" href="#comment-19" id="comment-19">#</a>
-                                                            <span class="comment-author"><%= @coms2.user.first_name%></span>
+                                                            <span class="comment-author"><%= @coms2.user.pseudonym%></span>
                                                             <span class="comment-date"><%= @coms2.created_at.strftime("%d-%m-%Y")%></span>
                                                             <div class="comment-body" id="comment-body-19"><%= @coms2.content%></div>
                                                             <span class="comments-buttons">
                                                             
-                                                            <a href="#" onclick="jcomments.showReply(19,1); return false;">commentaire de <%= @coms2.user.first_name%></a> 
+                                                            <a href="#" onclick="jcomments.showReply(19,1); return false;">commentaire de <%= @coms2.user.pseudonym%></a> 
                                                             
                                                             </span>
                                                         </div>
@@ -162,12 +162,12 @@
                                                             </div>
                                                             <div class="comment-box avatar-indent">
                                                                 <a class="comment-anchor" href="#comment-20" id="comment-20">#</a>
-                                                                <span class="comment-author"><%= @coms3.user.first_name%></span>
+                                                                <span class="comment-author"><%= @coms3.user.pseudonym%></span>
                                                                 <span class="comment-date"><%= @coms3.created_at.strftime("%d-%m-%Y")%></span>
                                                                 <div class="comment-body" id="comment-body-20">T<%= @coms3.content%></div>
                                                                 <span class="comments-buttons">
                                                                 
-                                                                <a href="#" onclick="jcomments.showReply(20,1); return false;">commentaire de <%= @coms3.user.first_name%></a> 
+                                                                <a href="#" onclick="jcomments.showReply(20,1); return false;">commentaire de <%= @coms3.user.pseudonym%></a> 
                                                                 
                                                                 </span>
                                                             </div>

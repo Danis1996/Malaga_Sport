@@ -34,6 +34,10 @@
                                         </form>
                                     </main>
                       </div>
+                      
+
+                      <%= render partial: "static_pages/paris" %>
+
                       <div style="text-align: center; background-color: #1fa2d6;"><h1>RECRUTEMENTS</h1>
                       </div> 
                       <div class="contentpaneopen">
@@ -65,8 +69,6 @@
                                             <div class="clearfix"></div>
                                         </form>
 
-                      <div style="text-align: center; background-color: #1fa2d6;"><h1>CLUBS</h1>
-                      </div>
                   </div>
                   <aside class="tm-sidebar-a uk-width-medium-1-4 uk-pull-3-4 uk-row-first">
                     <div class="uk-panel ">
@@ -104,8 +106,24 @@
                     <div class="uk-panel news-sidebar">
                             <%= render partial: "static_pages/recent_club" %>
                     </div>
+                    <div class="uk-panel news-sidebar">
+                            <%= render partial: "static_pages/pub" %>
+                    </div>
+                    <div class="uk-panel news-sidebar">
+                            <%= render partial: "static_pages/pub" %>
+                    </div>
+                    <div class="uk-panel news-sidebar">
+                            <%= render partial: "static_pages/pub" %>
+                    </div>
+                    <div class="uk-panel news-sidebar">
+                            <img src="/vendor/pub10.jpeg" style="height: 250px; width: 200px;">
+                    </div>
+
                 </aside>
               </div>
+                    <div >
+                           <%= render partial: "static_pages/slidepub" %>
+                    </div>
       </div>
     </div>
 

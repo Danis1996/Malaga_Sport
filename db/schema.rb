@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_21_162506) do
+ActiveRecord::Schema.define(version: 2019_09_30_061329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,21 @@ ActiveRecord::Schema.define(version: 2019_09_21_162506) do
     t.index ["club_id"], name: "index_events_on_club_id"
   end
 
+  create_table "funs", force: :cascade do |t|
+    t.integer "mise"
+    t.integer "gain"
+    t.bigint "match_id"
+    t.bigint "user_id"
+    t.bigint "club_id"
+    t.bigint "result_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["club_id"], name: "index_funs_on_club_id"
+    t.index ["match_id"], name: "index_funs_on_match_id"
+    t.index ["result_id"], name: "index_funs_on_result_id"
+    t.index ["user_id"], name: "index_funs_on_user_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "event_id"
@@ -98,6 +113,17 @@ ActiveRecord::Schema.define(version: 2019_09_21_162506) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_likes_on_event_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.datetime "start_date"
+    t.string "area"
+    t.bigint "equipe_a_id"
+    t.bigint "equipe_b_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["equipe_a_id"], name: "index_matches_on_equipe_a_id"
+    t.index ["equipe_b_id"], name: "index_matches_on_equipe_b_id"
   end
 
   create_table "publications", force: :cascade do |t|
@@ -133,6 +159,19 @@ ActiveRecord::Schema.define(version: 2019_09_21_162506) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recrutement_id"], name: "index_requests_on_recrutement_id"
     t.index ["user_id"], name: "index_requests_on_user_id"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.boolean "match_nul"
+    t.integer "score_a"
+    t.integer "score_b"
+    t.text "description"
+    t.bigint "winner_id"
+    t.bigint "looser_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["looser_id"], name: "index_results_on_looser_id"
+    t.index ["winner_id"], name: "index_results_on_winner_id"
   end
 
   create_table "static_pages", force: :cascade do |t|

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#index'
   resources :requests
+  resources :teams, only: [:index]
   resources :events do
     resources :commentaire
     resources :likes

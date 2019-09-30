@@ -53,7 +53,7 @@ a:hover {
  */
 a,
 .uk-link {
-  color: #363533;
+  color: white;
   text-decoration: none;
   cursor: pointer;
 }
@@ -12295,7 +12295,7 @@ q {
 }
 .list-article .date {
   font-size: 14px;
-  color: #a6a6a6;
+  color: grey;
   font-weight: 400;
   font-family: 'Asap';
 }
@@ -12312,7 +12312,7 @@ q {
   overflow: hidden;
   font-size: 15px;
   line-height: 22px;
-  color: #a6a6a6;
+  color: grey;
   font-family: 'Asap';
 }
 .other-post-title {
@@ -13041,7 +13041,7 @@ q {
 .our-news-article .date {
   padding: 22px 0 0;
   font-size: 14px;
-  color: #c4c4c4;
+  color: grey;
   font-family: 'Asap';
   font-weight: 500;
 }
@@ -13058,7 +13058,7 @@ q {
 .our-news-article .text {
   font-size: 15px;
   line-height: 22px;
-  color: #c4c4c4;
+  color: grey;
   font-family: 'Asap';
 }
 .our-news-article .read-more {
@@ -13068,6 +13068,7 @@ q {
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
+  color: grey;
   font-family: 'Asap';
 }
 .our-news-article .read-more a:after {
@@ -13123,7 +13124,7 @@ q {
   padding-bottom: 35px;
   text-align: center;
   font-family: 'Asap';
-  color: #a6a6a6;
+  color: black;
   font-size: 15px;
 }
 .va-main-our-news {
@@ -15229,7 +15230,7 @@ ul.uk-switcher {
 .uk-accordion-content {
   font-family: 'Asap';
   font-size: 15px;
-  color: #a6a6a6;
+  color: black;
 }
 .uk-accordion-title .arrow {
   position: absolute;

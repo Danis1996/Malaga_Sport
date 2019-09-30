@@ -26,7 +26,7 @@ anarana = ["RABEZAVANA","ANDRIANAIVO","RAMANANTSOA","RABEMANANJARA","ANDRIANANTE
             "RAINIKETAMANGA","RAFAMELOMA","RAININDIMBY","RAKETAKA","RAZANAMAVO","RAZANABARY","ANDRIAMANANTENASOA","RAMANANDRAIBE","RAKOTONIAINA","RANDRIA"]
 
 anarambositra = ["Peta","Bory","Leda","Bôbô","ZetyBe","Ravoatabia","Mainty","Lavakely","Bota","Badoda",
-            "Pitsana","Papeta","Ngilo","Bema","Rabisikileta","Rainitay","Gena","Tsalo","Lavaloha","Gila",
+            "Pitsana","Bila","Ngilo","Bema","Rabisikileta","Rainitay","Gena","Tsalo","Lavaloha","Gila",
             "Doudou","Be","Piso","Rabararanta","Lalakely","Vandam","Vazah","Deda","Nini","sisi"]
 
 tanana = ["Ambohimanatrika","Besarety","Ankadilalana","Amboanjobe","Andafiatsimo","Ivandry","Ambatolampikely","Ivato tanàna","cité Itaosy","Isotry",
@@ -34,9 +34,9 @@ tanana = ["Ambohimanatrika","Besarety","Ankadilalana","Amboanjobe","Andafiatsimo
             "Sabotsy-Namehana","Ambatolampy","Ambohijanaka","Tanjombato","Soavina","Anosizato","Anosibe","Antanetibe","Analavory","Manjakandriana"]
 
 ohabolana = ["Antitra manao baolina : ny traikefa avo dia avo fa ny hoza-pe no tsy maharaka intsony",
-    " olona iray no nangalatra akoho ka alasora iray vohitra no voaendrikendrika",
-    " ny olona no manitsa-bazimba ka ny akoho no ahanto-doha",
-    " bibilava sy olona ka samy taitra sy samy mitsoaka",
+    " Olona iray no nangalatra akoho ka alasora iray vohitra no voaendrikendrika",
+    " Ny olona no manitsa-bazimba ka ny akoho no ahanto-doha",
+    " Bibilava sy olona ka samy taitra sy samy mitsoaka",
     " Be nangy mitsok'ovy, ny kibo voky tsy hitan'ny olona fa ny nangy mitombo no hitan'ny olona",
     " Manalasa toy ny sola mividy fihogo, ny volon-kelika ve no atao sori-bilana sa ny volon-tratra no atao vaky tampona",
     " senegaly nandro, ny tsikoko afaka fa ny hamaintisana tsy niova",
@@ -174,3 +174,4 @@ puts "20 seed for Events created succesfully with attribut user_id "
     end
 
 puts "10 seed for Publication created succesfully "
+

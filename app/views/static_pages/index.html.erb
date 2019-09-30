@@ -5,13 +5,14 @@
 
     <div class="over-wrap">
         <%= render partial: "static_pages/slide" %>
-      <div class="uk-container uk-container-center alt">
+      <!-- <div class="uk-container uk-container-center alt">
               <ul class="uk-breadcrumb">
                   <li><a>MalagaSport</a></li>
                   <li class="uk-active"><span>Promouvons ensemble le sport à Madagascar. Le site qui facilite la mise en relation entre joueurs et recruteurs dans tout Madagascar</span></li>
               </ul>
-      </div>
-
+      </div> -->
+<br>
+<br>
       <div class="uk-container uk-container-center">
               <div id="tm-middle" class="tm-middle uk-grid" data-uk-grid-match="" data-uk-grid-margin="">
                   <div class="tm-main uk-width-medium-3-4 uk-push-1-4">
@@ -71,9 +72,9 @@
 
                   </div>
                   <aside class="tm-sidebar-a uk-width-medium-1-4 uk-pull-3-4 uk-row-first">
-                    <div class="uk-panel ">
+                    <!-- <div class="uk-panel ">
                         <img src="/logo/logo.png">
-                    </div>
+                    </div> -->
                     <div class="uk-panel categories-sidebar">
                         <h3 class="uk-panel-title">Categories</h3>
                         <div>
@@ -86,45 +87,16 @@
                         <%= render partial: "static_pages/publication" %>
                     </div>
                             
-                    <% if current_user %>
-                      <div class="uk-panel tags-sidebar">
-                          <h3 class="uk-panel-title">Avatar</h3>
-                          <div class="contentpaneopen">
-                            <% if current_user.avatar.attached?%>
-                              <%= image_tag current_user.avatar, alt: 'avatar', :class=>"img-polaroid" %>
-                            <% else %>
-                              <a href="/users/<%= current_user.id %>">
-                              <img src="/vendor/tete.gif" class="img-polaroid" alt="">
-                              </a>
-                          <% end %>
-                          </div>
-                          <div style="clear: both;">
-                            
-                          </div>
-                      </div>
-                    <% end %>
+                    
                     <div class="uk-panel news-sidebar">
                             <%= render partial: "static_pages/recent_club" %>
                     </div>
-                    <div class="uk-panel news-sidebar">
-                            <%= render partial: "static_pages/pub" %>
-                    </div>
-                    <div class="uk-panel news-sidebar">
-                            <%= render partial: "static_pages/pub" %>
-                    </div>
-                    <div class="uk-panel news-sidebar">
-                            <%= render partial: "static_pages/pub" %>
-                    </div>
-                    <div class="uk-panel news-sidebar">
-                            <img src="/vendor/pub10.jpeg" style="height: 250px; width: 200px;">
-                    </div>
+                    
 
                 </aside>
               </div>
-                    <div >
-                           <%= render partial: "static_pages/slidepub" %>
-                    </div>
-      </div>
+                 
+      </div> 
     </div>
 
 

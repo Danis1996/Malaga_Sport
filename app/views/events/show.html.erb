@@ -52,12 +52,12 @@
                                                     </ul>
                                                 </div>
                                                 <div class="uk-width-medium-4-10">
-                                                    <h3 class="history-title">Praesent <span>dictum</span></h3>
+                                                    <h3 class="history-title">Loca<span>tion</span></h3>
                                                     <div class="uk-accordion" data-uk-accordion="">
 
-                                                        <h4 class="uk-accordion-title uk-active">Location  : <span class="arrow"><i class="uk-icon-arrow-right"></i></span></h4>
+                                                        <h4 class="uk-accordion-title uk-active"><%= @event.location%> <span class="arrow"><i class="uk-icon-arrow-right"></i></span></h4>
                                                         <div aria-expanded="true" data-wrapper="true" role="list" style="height: auto; position: relative;">
-                                                            <div class="uk-accordion-content uk-active"><%= @event.location%></div>
+                                                            <div class="uk-accordion-content uk-active"></div>
                                                         </div>
 
                                                         
@@ -88,3 +88,4 @@
                             </div>
                         </div>
                     </div>
+<%= link_to "Revenir à l'accueil", root_path%>

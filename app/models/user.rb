@@ -13,4 +13,5 @@ class User < ApplicationRecord
          has_many :publications, dependent: :destroy
          has_one_attached :avatar
          has_many :user_provider, :dependent => :destroy
+         has_many :fun
 end

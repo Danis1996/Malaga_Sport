@@ -158,10 +158,10 @@ puts "10 seed for Request created succesfully with attribut user_id "
     20.times do
       date = "#{rand(2019..2022)}/#{rand(1..12)}/#{rand(1..30)}"
         Event.create(start_date: date, 
-                    duration: 5*rand(2..10), 
+                    duration: 5*rand(0..2), 
                     title: anarambositra[rand(0..29)], 
                     description: ohabolana[rand(0..29)], 
-                    price: rand(10..50), 
+                    price: rand(1000..5000), 
                     location: tanana[rand(0..29)], 
                     club_id: rand(1..30)
                     )

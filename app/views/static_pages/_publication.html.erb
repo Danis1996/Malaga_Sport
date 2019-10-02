@@ -1,5 +1,5 @@
 <!-- Formulaire pour les publications                         -->
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
                         <h3 class="uk-panel-title">Publier</h3>
                         <div class="has-context latest-news-wrap"> 
@@ -7,8 +7,8 @@
                         </div>
                         <article class="has-context ">
                               <%= form_tag "/publications", method: "post" do %>
-                              <%= text_area_tag :content %>
-                            <%= submit_tag "Publier", class: "btn btn-lg btn-primary" %>
+                              <%= text_area_tag :content," ", class: "form-control", style: "width: 85%"%>
+                            <%= submit_tag "Publier", class: "btn btn-lg btn-primary mt-1 py-0" %>
                               <% end %>
                         </article>
                         

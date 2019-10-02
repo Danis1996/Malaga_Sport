@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<%= form_with(model: club, local: true) do |form| %>
+<%= form_with(model: club, multipart: true, local: true) do |form| %>
   <% if club.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(club.errors.count, "error") %> prohibited this club from being saved:</h2>
@@ -20,7 +20,7 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <br><br><br>
-      <%= form_tag url_for(action: 'create'), method: "club" do%>
+      <%= form_tag url_for(action: 'create') do %>
       <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
         <h1 class="h3 mb-3 font-weight-normal text-center">Créer un club</h1>
         <div class="form-group">
@@ -35,6 +35,13 @@
           <label>Quartier</label>
           <%=select_tag 'quarter_id', options_for_select(@quarters.collect{ |t| [t.name, t.id] })%>
         </div>
+
+        <div>
+            <%= file_field_tag :picture, class: "btn btn-lg btn-primary btn-block" %>
+            
+          
+        </div>
+
 
         <div class="actions mt-5">
           <%= submit_tag "Créer un club", class: "btn btn-lg btn-primary btn-block" %>

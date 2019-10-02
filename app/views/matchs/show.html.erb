@@ -1,0 +1,64 @@
+<br><br><br><br><br><br><br><br>
+
+<h1> <%= @match.equipe_a.name %> vs <%= @match.equipe_b.name %> </h1>
+<% i = 0%>
+<% @funs.where(club_id: @match.equipe_a.id).each do |fun_a| %>
+<% i += fun_a.mise %>
+<% end %>
+
+<% j = 0%>
+<% @funs.where(club_id: @match.equipe_b.id).each do |fun_b| %>
+<% j += fun_b.mise %>
+<% end %>
+
+
+<h3><%= @match.equipe_a.name %> <i>(<%= i %> Ar)</i></h3>
+<table style="background-color: green; text-align: center; margin-right: 200px;">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" style="text-align:center;">Club</th>
+      <th>Utilisateur</th>
+      <th scope="col" style="text-align:center;">Mise</th>
+      <th colspan="3" scope="col" style="text-align:center;"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  		<% @funs.each do |fun| %>
+  		<% if fun.club == @match.equipe_a %>
+      <tr>
+        <td style="text-align:center;"><%= fun.club.name %> </td>
+        <td style="text-align:center;"><%= fun.user.first_name %></td>
+        <td style="text-align:center;"><%= fun.mise %> Ar</td>
+        <td style="text-align:center;"></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+  <a href="#" style="background-color: rgb(50,50,50);"> Miser</a>
+</table>
+
+<br><br>
+
+<h3><%= @match.equipe_b.name %> <i>(<%= j %> Ar)</i></h3>
+<table style="background-color: green; text-align: center; margin-right: 200px;">
+  <thead class="thead-dark">
+    <tr>
+      <th>Utilisateur</th>
+      <th scope="col" style="text-align:center;">Mise</th>
+      <th colspan="3" scope="col" style="text-align:center;"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  		<% @funs.each do |fun| %>
+  		<% if fun.club == @match.equipe_b %>
+      <tr>
+        <td style="text-align:center;"><%= fun.user.first_name %></td>
+        <td style="text-align:center;"><%= fun.mise %> Ar</td>
+        <td style="text-align:center;"></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>

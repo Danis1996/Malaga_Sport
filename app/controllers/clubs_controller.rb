@@ -31,12 +31,13 @@ class ClubsController < ApplicationController
   def create
       @my_user = current_user.id
     @club = Club.create('name' => params[:name], 'category' => params[:category], quarter_id: params[:quarter_id])
-
+  
+  @club.picture.attach(params[:picture])
   @club.admin_id =  @my_user
 
     respond_to do |format|
       if @club.save
-        format.html { redirect_to new_club_picture_path(@club.id), notice: 'Le club  a été créé avec succés.' }
+        format.html { redirect_to club_path(@club.id), notice: 'Le club  a été créé avec succés.' }
         format.json { render :show, status: :created, location: @club }
       else
         format.html { render :new }

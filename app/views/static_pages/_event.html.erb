@@ -12,10 +12,8 @@
                 <div class="wrapper">
                     <div class="img-wrap uk-flex-wrap-top">                        
                         <% if eve[(i+1)*(-1)].club.picture.attached? %>
-
-                            <a href="<%= events_path(eve[(i+1)*(-1)].id)%>">
-                            <img src="<%= eve[(i+1)*(-1)].club.picture %>" class="img-polaroid" alt="">
-                            </a> 
+                            <%= image_tag eve[(i+1)*(-1)].club.picture, :class=>"img-polaroid", :alt=>"" %>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
                         <% else %>
                             <a href="<%= events_path(eve[(i+1)*(-1)].id)%>">
 

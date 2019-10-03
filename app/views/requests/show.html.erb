@@ -10,12 +10,6 @@
   <%= @request.parcours %>
 </p>
 
-<% if current_user == @request.recrutement.club.admin%>
-<%= link_to "Accepter la demande de #{@request.user.first_name}", request_path(@request.id) , method: :patch%>
-<% end %>
-<br>
-<a href="#" data-requestid ="<%=@request.id%>" data-id="<%=@request.recrutement_id%>" class="requete">Edité</a> |
-<%= link_to "Revenir à la page précédente", recrutement_path(@request.recrutement.id) %>
 
 
 
@@ -37,7 +31,7 @@
                             <div class="uk-cover-background uk-position-relative head-match-wrap" style="height: 590px; background-image: url('images/head-bg-match.jpg');">
                                 <img class="uk-invisible" src="/vendor/images/head-bg-match.jpg" alt="">
                                 <div class="uk-position-cover uk-flex-center head-news-title">
-                                   
+                                   <h3>Le recrutement où vous avez postulé : </h3>
                                     <div class="clear"></div>
                                     <div class="uk-container uk-container-center">
                                         <div class="uk-grid no-marg">
@@ -128,12 +122,13 @@
             </div>
         </div>
 
-</div>
+<br>
+<br>
 
-<%= link_to "Revenir à l'accueil", root_path%>
 <% if current_user == @request.recrutement.club.admin%>
 <%= link_to "Accepter la demande de #{@request.user.first_name}", request_path(@request.id) , method: :patch%>
 <% end %>
-
 <br>
-<br>
+<!-- <a href="#" data-requestid ="<%=@request.id%>" data-id="<%=@request.recrutement_id%>" class="requete">Edité</a> | -->
+<%= link_to "Revenir à la page précédente", recrutement_path(@request.recrutement.id) %>
+</div>

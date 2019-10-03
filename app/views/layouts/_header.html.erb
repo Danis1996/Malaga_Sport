@@ -57,7 +57,7 @@
                                                     <li>                                               
                                                         <% Club.all.each do |club| %>
                                                             <% if club.admin.id == current_user.id %>
-                                                                <%=link_to "Mon club", club_path(club.id)%>          
+                                                                <%=link_to club.name, club_path(club.id)%>          
                                                             <% else %>
                                                                 <% a+= 1%>
                                                             <% end %>

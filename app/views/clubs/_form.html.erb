@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<%= form_with(model: club, local: true) do |form| %>
+<%= form_with(model: club, local: true, multipart: true) do |form| %>
   <% if club.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(club.errors.count, "error") %> prohibited this club from being saved:</h2>
@@ -34,6 +34,12 @@
         <div class="form-group">
           <label>Quartier</label>
           <%=select_tag 'quarter_id', options_for_select(@quarters.collect{ |t| [t.name, t.id] })%>
+        </div>
+        
+        <div class="form-group">
+          <label>Ajouter la photo de votre club</label>
+          <%= file_field_tag :picture %>
+          
         </div>
 
         <div class="actions mt-5">

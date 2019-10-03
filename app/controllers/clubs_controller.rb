@@ -36,7 +36,7 @@ class ClubsController < ApplicationController
   @club.picture.attach(params[:picture])
   @club.admin_id =  @my_user
 
-    respond_to< do |format|
+    respond_to do |format|
       if @club.save
         format.html { redirect_to club_path(@club.id), notice: 'Le club  a été créé avec succés.' }
         format.json { render :show, status: :created, location: @club }

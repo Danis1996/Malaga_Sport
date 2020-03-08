@@ -26,7 +26,7 @@
                     </div>
                     <div class="info uk-flex-wrap-middle">
                         <div class="date">
-                            <%= eve[(i+1)*(-1)].start_date%>           
+                            <%= eve[(i+1)*(-1)].start_date.strftime("%d-%m-%Y")%>           
 
                         </div>
                         <div class="name">
@@ -50,12 +50,14 @@
                     <% if current_user%>
 
                         <% if user_like.count > 0 %>
-                            <div class="count"><i><%= eve[(i+1)*(-1)].likes.count %></i><span>J'aime déja </span>
+                            <!-- <div class="count"><i><%= eve[(i+1)*(-1)].likes.count %></i><span>J'aime déja </span> -->
+                            <div class="count"><i><%= eve[(i+1)*(-1)].likes.count %></i><a href="#" class="likio" data-id="<%=eve[(i+1)*(-1)].id%>"> <span>J'aime déja </span> </a>
+                                
                             </div>
                            
-
+<!-- /events//likes -->
                         <%else%>
-                            <div class="count"><i><%= eve[(i+1)*(-1)].likes.count %></i><a href="/events/<%=eve[(i+1)*(-1)].id%>/likes"  data-method = "post"> <span> j'aime </span> </a>
+                            <div class="count"><i><%= eve[(i+1)*(-1)].likes.count %></i><a href="#" class="likio" data-id="<%=eve[(i+1)*(-1)].id%>"> <span> j'aime </span> </a>
                             </div>
                             
                         <% end %>
@@ -71,4 +73,9 @@
     <% end %>
 
 <%end%>
+
+
+<script type="text/javascript" >
+
+</script>
     

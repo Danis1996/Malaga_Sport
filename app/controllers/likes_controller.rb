@@ -3,14 +3,23 @@ class LikesController < ApplicationController
    before_action :find_like, only: [:destroy]
    def index
    end
-   def create
-
-    if already_liked?
-    flash[:notice] = "indraipa iany"
+  
+  def create
+puts "#"*50
+  if already_liked?
+    @event.likes.find_by(user_id: current_user.id).destroy()
+    @like = @event.likes.count()
+    
   else
     @event.likes.create(user_id: current_user.id)
+    @like = @event.likes.count()
+    @create = 1
+
   end
-  redirect_to root_path
+
+  respond_to do |format|
+    format.json { render json: {'like': @like , 'create': @create } }
+  end
   end 
 
 def show
